@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom CSS */
+h1{
+    font-size: 40px;
+    line-height: 36px;
+}
+h2{
+    font-size: 32px;
+    line-height: 32px;
+}
+h3{
+    font-size: 28px;
+}
+h4{
+    font-size: 24px;
+}
+h5{
+    font-size: 20px;
+}
+h6{
+    font-size: 16px;
+}
+
+body{
+    background-color: #f2f2f2;
+  }
+  .container {
+    @apply mx-auto;
+    max-width: 1260px;
+  }
+  .container-box{
+    @apply mx-auto;
+    max-width: 1140px;
+  }
+  .primary-color{
+    color: #040158;
+  }
+  .primary-bg{
+    background: linear-gradient(45deg, #1a49a8, #1a7ba8);
+  }
+  .logo-red-color{
+    color: #ff0000;
+  }
+  .logo-red-bg{
+    background-color: #ff0000;
+  }
+  .nav-bg{
+    background-color: #1a49a8;
+  }
+  .nav-color{
+    color: #636363;
+  }
+  .footer-bg{
+    background-color: #282828;
+  }
+  .btn-bg{
+    background-color: #3a4248;
+  }
+  .custom-b-color{
+    border-color: #0AB7CF;
+  }
+  .bottom-footer-bg{
+    background-color: #141414;
+  }
+  .slider-area ul.slick-dots {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    margin-top: -32.5px;
+    left: 50%;
+  }
+
+  .slider-area ul.slick-dots button {
+    text-indent: -9999px;
+    background-color: #d1ddd2;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+  }
+
+  .slider-area ul.slick-dots li {
+    border-width: 1px;
+    height: 15px;
+    width: 15px;
+    display: inline-flex;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    padding: 2px;
+    margin-left: 5px;
+  }
+
+  .slider-area ul.slick-dots li.slick-active {
+    border-color: #040158;
+  }
+
+  .slider-area ul.slick-dots li.slick-active button {
+    background-color: #040158;
+  }
+  .custom-h-600{
+    height: 600px;
+    @apply object-cover;
+    @apply w-full;
+  }
+  .custom-slider-h-400{
+    height: 400px;
+    /* @apply object-cover; */
+    @apply w-full;
+  }
+  /* reasearch page */
+  ul.pagination {
+    display: flex;
+    margin-top: 30px;
+    gap: 12px;
+}
+
+ul.pagination li {
+    padding: 0 10px;
+    background: #040158;
+    color: #fff;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+ul.pagination li.active {
+    background: #282828;
+}
+
+  /* responsive layout */
+  @media (max-width: 1400px) {
+    .container{
+        max-width: 1220px;
+        @apply mx-auto;
+    }
+    .container-box{
+      @apply mx-auto;
+      max-width: 1140px;
+    }
+  }
+  /* Large Screen */
+  @media (max-width: 1260px) {
+    .container{
+        max-width: 1140px;
+        @apply mx-auto;
+    }
+    .container-box{
+      @apply mx-auto;
+      max-width: 1024px;
+    }
+  }
+  /* Tab Screen */
+  @media (max-width: 991px) {
+    .container{
+        max-width: 720px;
+        @apply mx-auto;
+    }
+    .container-box{
+      @apply mx-auto;
+      max-width: 700px;
+    }
+    .education-tab {
+      width: 700px;
+      overflow-x: auto;
+    }
+  }
+  /* Tab Screen */
+  @media (max-width: 767px) {
+    .container, .controller{
+        max-width: 540px;
+        @apply mx-auto;
+    }
+    .container-box{
+      @apply mx-auto;
+      max-width: 500px;
+    }
+    .education-tab {
+      width: 500px;
+      overflow-x: auto;
+    }
+  }
+  /* Mobile Screen */
+  @media (max-width: 575px) {
+    .container, .controller{
+        max-width: 320px;
+        @apply mx-auto;
+    }
+    .container-box{
+      @apply mx-auto;
+      max-width: 300px;
+    }
+    .education-tab {
+      width: 300px;
+      overflow-x: auto;
+    }
+  }
+  /* small mobile screen */
+  @media (max-width: 330px) {
+    .container, .controller{
+        width: 280px;
+        @apply mx-auto;
+    }
+    .container-box{
+      @apply mx-auto;
+      max-width: 250px;
+    }
+    .education-tab {
+      width: 250px;
+      overflow-x: auto;
+    }
+  }
+
