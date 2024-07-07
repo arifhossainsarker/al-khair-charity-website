@@ -330,7 +330,7 @@
                                 href="#sidebarPeople" data-bs-toggle="collapse" role="button"
                                 aria-expanded="{{ Route::is('back.people-list.index') || Route::is('back.people-list.create') || Route::is('back.people-list.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'true' : 'false' }}"
                                 aria-controls="sidebarPeople">
-                                <i class="ri-team-fill"></i> <span data-key="t-apps">People</span>
+                                <i class="ri-team-fill"></i> <span data-key="t-apps">Volunteer</span>
                             </a>
                             <div class="collapse menu-dropdown {{ Route::is('back.people-list.index') || Route::is('back.people-list.create') || Route::is('back.people-list.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'show' : '' }}"
                                 id="sidebarPeople">
@@ -362,7 +362,7 @@
                                 href="#sidebarAlumni" data-bs-toggle="collapse" role="button"
                                 aria-expanded="{{ Route::is('back.alumni.index') || Route::is('back.alumni.create') || Route::is('back.alumni.edit') ? 'true' : 'false' }}"
                                 aria-controls="sidebarAlumni">
-                                <i class="ri-user-star-fill"></i> <span data-key="t-apps">Alumni</span>
+                                <i class="ri-user-star-fill"></i> <span data-key="t-apps">Donor</span>
                             </a>
                             <div class="collapse menu-dropdown {{ Route::is('back.alumni.index') || Route::is('back.alumni.create') || Route::is('back.alumni.edit') ? 'show' : '' }}"
                                 id="sidebarAlumni">
@@ -592,11 +592,11 @@
                             ©
                             <script>
                                 document.write(new Date().getFullYear())
-                            </script> NSTU.
+                            </script> Al-Khair.
                         </div>
                         <div class="col-sm-6">
                             <div class="text-sm-end d-none d-sm-block">
-                                website by styleZworld.com
+                                Website Developed BY <a href="https://github.com/arifhossainsarker/al-khair-charity-website">Arif</a>
                             </div>
                         </div>
                     </div>

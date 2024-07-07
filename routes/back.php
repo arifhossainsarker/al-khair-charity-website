@@ -97,7 +97,7 @@ Route::middleware('auth', 'isAdmin', 'user.permission')->group(function () {
 
     Route::resource('notice-board', NoticeBoardController::class, ['as' => 'back']);
 
-    // people controller
+    // Volunteer controller
     Route::resource('people', PeopleController::class, ['as' => 'back']);
     Route::resource('people-list', PeopleListController::class, ['as' => 'back']);
     Route::get('people-list/remove-image/{people}', [PeopleListController::class, 'removeImage'])->name('back.people-list.removeImage');
