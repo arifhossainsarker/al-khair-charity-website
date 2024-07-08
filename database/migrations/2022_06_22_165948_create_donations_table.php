@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAlumnisTable extends Migration
+class CreateDonationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateAlumnisTable extends Migration
      */
     public function up()
     {
-        Schema::create('alumnis', function (Blueprint $table) {
+        Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('designation');
-            $table->string('batch_no');
+            $table->string('email');
+            $table->string('phone');
+            $table->longText('address');
             $table->longText('description');
-            $table->string('image')->nullable();
-            $table->string('image_path')->nullable();
-            $table->integer('media_id')->nullable();
+            $table->decimal('amount', 8, 2);
+            $table->string('payment_method');
             $table->boolean('status')->default(1);
             $table->timestamps();
         });
@@ -34,6 +34,6 @@ class CreateAlumnisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('alumnis');
+        Schema::dropIfExists('donations');
     }
 }

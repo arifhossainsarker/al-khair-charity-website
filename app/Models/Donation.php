@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use App\Repositories\MediaRepo;
 use Illuminate\Database\Eloquent\Model;
 
-class Alumni extends Model
+class Donation extends Model
 {
     use HasFactory;
 
@@ -17,17 +16,14 @@ class Alumni extends Model
      */
     protected $fillable = [
         'name',
-        'designation',
-        'batch_no',
+        'email',
+        'phone',
+        'address',
         'description',
-        'image',
-        'image_path',
-        'media_id',
+        'amount',
+        'payment_method',
         'status',
     ];
 
-    // Image Paths
-    public function getImgPathsAttribute(){
-        return MediaRepo::sizes($this->image_path, $this->image);
-    }
+
 }
