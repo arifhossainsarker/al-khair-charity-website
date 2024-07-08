@@ -358,25 +358,25 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link {{ Route::is('back.alumni.index') || Route::is('back.alumni.create') || Route::is('back.alumni.edit') ? 'active' : 'collapsed' }}"
+                            <a class="nav-link menu-link {{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') ? 'active' : 'collapsed' }}"
                                 href="#sidebarAlumni" data-bs-toggle="collapse" role="button"
-                                aria-expanded="{{ Route::is('back.alumni.index') || Route::is('back.alumni.create') || Route::is('back.alumni.edit') ? 'true' : 'false' }}"
+                                aria-expanded="{{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') ? 'true' : 'false' }}"
                                 aria-controls="sidebarAlumni">
-                                <i class="ri-user-star-fill"></i> <span data-key="t-apps">Donor</span>
+                                <i class="ri-user-star-fill"></i> <span data-key="t-apps">Donations</span>
                             </a>
-                            <div class="collapse menu-dropdown {{ Route::is('back.alumni.index') || Route::is('back.alumni.create') || Route::is('back.alumni.edit') ? 'show' : '' }}"
+                            <div class="collapse menu-dropdown {{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') ? 'show' : '' }}"
                                 id="sidebarAlumni">
                                 <ul class="nav nav-sm flex-column">
 
                                     <li class="nav-item">
-                                        <a href="{{ route('back.alumni.index') }}"
-                                            class="nav-link {{ Route::is('back.alumni.index') ? 'active' : '' }}"
+                                        <a href="{{ route('back.donation.index') }}"
+                                            class="nav-link {{ Route::is('back.donation.index') ? 'active' : '' }}"
                                             data-key="t-mailbox"> All </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ route('back.alumni.create') }}"
-                                            class="nav-link {{ Route::is('back.alumni.create') ? 'active' : '' }}"
+                                        <a href="{{ route('back.donation.create') }}"
+                                            class="nav-link {{ Route::is('back.donation.create') ? 'active' : '' }}"
                                             data-key="t-mailbox"> Create </a>
                                     </li>
 

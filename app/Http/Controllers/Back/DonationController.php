@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use App\Models\Alumni;
+use App\Models\Donation;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Repositories\MediaRepo;
 use Illuminate\Http\Request;
 
-class AlumniController extends Controller
+class DonationController extends Controller
 {
 
     /**
@@ -18,9 +18,9 @@ class AlumniController extends Controller
      */
     public function index(Request $request)
     {
-        $alumnies = Alumni::get();
+        $donations = Donation::get();
 
-        return view('back.alumni.index', compact('alumnies'));
+        return view('back.donation.index', compact('donations'));
     }
 
     /**
@@ -29,7 +29,7 @@ class AlumniController extends Controller
      */
     public function create(Request $request)
     {
-        return view('back.alumni.create');
+        return view('back.donation.create');
     }
 
     /**
@@ -41,34 +41,27 @@ class AlumniController extends Controller
         $v_data = [
             'name' => 'required|max:255',
             'email' => 'required',
-            'student_id' => 'required'
-            // 'description' => 'required',
+            'phone' => 'required',
+            'amount' => 'required',
+            'payment_method' => 'required'
+
         ];
 
-        if ($request->file('image')) {
-            $v_data['image'] = 'mimes:jpg,png,jpeg,gif';
-        }
 
         $request->validate($v_data);
 
-        $alumni = new Alumni();
-        $alumni->name = $request->name;
-        $alumni->email = $request->email;
-        $alumni->student_id = $request->student_id;
-        $alumni->designation = $request->designation;
-        $alumni->batch_no = $request->batch_no;
-        $alumni->description = $request->description;
+        $donation = new Donation();
+        $donation->name = $request->name;
+        $donation->email = $request->email;
+        $donation->phone = $request->phone;
+        $donation->address = $request->address;
+        $donation->description = $request->description;
+        $donation->amount = $request->amount;
+        $donation->payment_method = $request->payment_method;
 
-        if ($request->file('image')) {
-            $uploaded_file = MediaRepo::upload($request->file('image'));
-            $alumni->image = $uploaded_file['file_name'];
-            $alumni->image_path = $uploaded_file['file_path'];
-            $alumni->media_id = $uploaded_file['media_id'];
-        }
+        $donation->save();
 
-        $alumni->save();
-
-        return redirect()->back()->with('success-alert', 'Alumni created successfully.');
+        return redirect()->back()->with('success-alert', 'Donation created successfully.');
     }
 
     /**
@@ -76,9 +69,9 @@ class AlumniController extends Controller
      * @param \App\Models\Research $research
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, Alumni $alumni)
+    public function show(Request $request, Donation $donation)
     {
-        return view('back.alumni.show', compact('research'));
+        return view('back.donation.show', compact('donation'));
     }
 
     /**
@@ -86,10 +79,10 @@ class AlumniController extends Controller
      * @param \App\Models\Research $research
      * @return \Illuminate\Http\Response
      */
-    public function edit($alumni)
+    public function edit($donation)
     {
-        $alumni = Alumni::findOrFail($alumni);
-        return view('back.alumni.edit', compact('alumni'));
+        $donation = Donation::findOrFail($donation);
+        return view('back.donation.edit', compact('donation'));
     }
 
     /**
@@ -138,11 +131,11 @@ class AlumniController extends Controller
      * @param \App\Models\Research $research
      * @return \Illuminate\Http\Response
      */
-    public function destroy($alumni)
+    public function destroy($donation)
     {
-        $alumni = Alumni::findOrFail($alumni);
-        $alumni->delete();
+        $donation = Donation::findOrFail($donation);
+        $donation->delete();
 
-        return redirect()->route('back.alumni.index')->with('success-alert', 'Alumni deleted successfully.');
+        return redirect()->route('back.donation.index')->with('success-alert', 'Donation deleted successfully.');
     }
 }

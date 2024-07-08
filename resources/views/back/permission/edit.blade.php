@@ -176,29 +176,29 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Alumni</td>
+                                <td>Donation</td>
                                 <td>
-                                    <input type="checkbox" name="permission[alumni][add]" value="1" @isset($permission['permission']['alumni']['add'])
+                                    <input type="checkbox" name="permission[donation][add]" value="1" @isset($permission['permission']['donation']['add'])
                                     checked
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[alumni][edit]" value="1" @isset($permission['permission']['alumni']['edit'])
+                                    <input type="checkbox" name="permission[donation][edit]" value="1" @isset($permission['permission']['donation']['edit'])
                                     checked
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[alumni][view]" value="1" @isset($permission['permission']['alumni']['view'])
+                                    <input type="checkbox" name="permission[donation][view]" value="1" @isset($permission['permission']['donation']['view'])
                                     checked
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[alumni][delete]" value="1" @isset($permission['permission']['alumni']['delete'])
+                                    <input type="checkbox" name="permission[donation][delete]" value="1" @isset($permission['permission']['donation']['delete'])
                                     checked
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[alumni][list]" value="1" @isset($permission['permission']['alumni']['list'])
+                                    <input type="checkbox" name="permission[donation][list]" value="1" @isset($permission['permission']['donation']['list'])
                                     checked
                                     @endisset>
                                 </td>

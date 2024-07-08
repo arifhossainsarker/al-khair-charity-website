@@ -5,7 +5,7 @@ use App\Http\Controllers\Back\BlogController;
 use App\Http\Controllers\Back\NewsController;
 use App\Http\Controllers\Back\EventController;
 use App\Http\Controllers\Back\ResearchController;
-use App\Http\Controllers\Back\AlumniController;
+use App\Http\Controllers\Back\DonationController;
 use App\Http\Controllers\Back\NoticeBoardController;
 use App\Http\Controllers\Back\FooterWidgetController;
 use App\Http\Controllers\Back\PeopleController;
@@ -92,8 +92,8 @@ Route::middleware('auth', 'isAdmin', 'user.permission')->group(function () {
 
     // Research
     Route::resource('research', ResearchController::class, ['as' => 'back']);
-
-    Route::resource('alumni', AlumniController::class, ['as' => 'back']);
+    // Donation
+    Route::resource('donation', DonationController::class, ['as' => 'back']);
 
     Route::resource('notice-board', NoticeBoardController::class, ['as' => 'back']);
 

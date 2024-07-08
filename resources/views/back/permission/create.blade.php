@@ -93,12 +93,12 @@
                                 <td><input type="checkbox" name="permission[people][list]" value="1"></td>
                               </tr>
                               <tr>
-                                <td>Alumni</td>
-                                <td><input type="checkbox" name="permission[alumni][add]" value="1"></td>
-                                <td><input type="checkbox" name="permission[alumni][edit]" value="1"></td>
-                                <td><input type="checkbox" name="permission[alumni][view]" value="1"></td>
-                                <td><input type="checkbox" name="permission[alumni][delete]" value="1"></td>
-                                <td><input type="checkbox" name="permission[alumni][list]" value="1"></td>
+                                <td>Donation</td>
+                                <td><input type="checkbox" name="permission[donation][add]" value="1"></td>
+                                <td><input type="checkbox" name="permission[donation][edit]" value="1"></td>
+                                <td><input type="checkbox" name="permission[donation][view]" value="1"></td>
+                                <td><input type="checkbox" name="permission[donation][delete]" value="1"></td>
+                                <td><input type="checkbox" name="permission[donation][list]" value="1"></td>
                               </tr>
                               <tr>
                                 <td>Notice Board</td>
