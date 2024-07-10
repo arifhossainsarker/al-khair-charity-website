@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
-use App\Models\Alumni;
+use App\Models\Donation;
 use App\Models\News;
 use App\Models\People;
 use App\Models\Research;
@@ -16,8 +16,8 @@ class OtherPageController extends Controller
         $news = News::count();
         $research = Research::count();
         $people = People::count();
-        $alumni = Alumni::count();
+        $donation = Donation::count();
 
-        return view('back.dashboard', compact('news', 'research', 'people', 'alumni'));
+        return view('back.dashboard', compact('news', 'research', 'people', 'donation'));
     }
 }
