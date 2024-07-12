@@ -8,11 +8,7 @@ use App\Http\Controllers\Back\ResearchController;
 use App\Http\Controllers\Back\DonationController;
 use App\Http\Controllers\Back\NoticeBoardController;
 use App\Http\Controllers\Back\FooterWidgetController;
-use App\Http\Controllers\Back\PeopleController;
-use App\Http\Controllers\Back\PeopleListController;
-use App\Http\Controllers\Back\PeopleQualificationController;
-use App\Http\Controllers\Back\PeopleQualificationCategoryController;
-use App\Http\Controllers\Back\PeopleQualificationValueController;
+use App\Http\Controllers\Back\VolunteerController;
 use App\Http\Controllers\Back\CategoryController;
 use App\Http\Controllers\Back\CommentController;
 use App\Http\Controllers\Back\FrontendController;
@@ -98,24 +94,24 @@ Route::middleware('auth', 'isAdmin', 'user.permission')->group(function () {
     Route::resource('notice-board', NoticeBoardController::class, ['as' => 'back']);
 
     // Volunteer controller
-    Route::resource('people', PeopleController::class, ['as' => 'back']);
-    Route::resource('people-list', PeopleListController::class, ['as' => 'back']);
-    Route::get('people-list/remove-image/{people}', [PeopleListController::class, 'removeImage'])->name('back.people-list.removeImage');
+    Route::resource('volunteer', VolunteerController::class, ['as' => 'back']);
+    // Route::resource('people-list', PeopleListController::class, ['as' => 'back']);
+    // Route::get('people-list/remove-image/{people}', [PeopleListController::class, 'removeImage'])->name('back.people-list.removeImage');
 
-    Route::resource('people-qualification', PeopleQualificationController::class, ['as' => 'back']);
-    Route::resource('people-qualification-category', PeopleQualificationCategoryController::class, ['as' => 'back']);
-    Route::resource('people-qualification-value', PeopleQualificationValueController::class, ['as' => 'back']);
+    // Route::resource('people-qualification', PeopleQualificationController::class, ['as' => 'back']);
+    // Route::resource('people-qualification-category', PeopleQualificationCategoryController::class, ['as' => 'back']);
+    // Route::resource('people-qualification-value', PeopleQualificationValueController::class, ['as' => 'back']);
 
-    Route::post('people-qualification-id', [PeopleListController::class, 'people_category']);
+    // Route::post('people-qualification-id', [PeopleListController::class, 'people_category']);
 
-    Route::post('qualification/update-ajax', [PeopleListController::class, 'qualificationUpdateAjax'])->name('back.qualification.updateAjax');
-    Route::post('qualification-position/update-ajax', [PeopleListController::class, 'qualificationPositionUpdateAjax'])->name('back.qualification-position.updateAjax');
+    // Route::post('qualification/update-ajax', [PeopleListController::class, 'qualificationUpdateAjax'])->name('back.qualification.updateAjax');
+    // Route::post('qualification-position/update-ajax', [PeopleListController::class, 'qualificationPositionUpdateAjax'])->name('back.qualification-position.updateAjax');
 
-    Route::post('qualification-category/update-ajax', [PeopleListController::class, 'qualificationCategoryUpdateAjax'])->name('back.qualification-category.updateAjax');
+    // Route::post('qualification-category/update-ajax', [PeopleListController::class, 'qualificationCategoryUpdateAjax'])->name('back.qualification-category.updateAjax');
 
-    Route::post('qualification-category-position/update-ajax', [PeopleListController::class, 'qualificationCategoryPositionUpdateAjax'])->name('back.qualification-category-position.updateAjax');
-    Route::post('qualification-category-value/update-ajax', [PeopleListController::class, 'qualificationCategoryValueUpdateAjax'])->name('back.qualification-category-value.updateAjax');
-    Route::post('qualification-category-value-position/update-ajax', [PeopleListController::class, 'qualificationCategoryValuePositionUpdateAjax'])->name('back.qualification-category-value-position.updateAjax');
+    // Route::post('qualification-category-position/update-ajax', [PeopleListController::class, 'qualificationCategoryPositionUpdateAjax'])->name('back.qualification-category-position.updateAjax');
+    // Route::post('qualification-category-value/update-ajax', [PeopleListController::class, 'qualificationCategoryValueUpdateAjax'])->name('back.qualification-category-value.updateAjax');
+    // Route::post('qualification-category-value-position/update-ajax', [PeopleListController::class, 'qualificationCategoryValuePositionUpdateAjax'])->name('back.qualification-category-value-position.updateAjax');
 
 
     // Request Contact Controller

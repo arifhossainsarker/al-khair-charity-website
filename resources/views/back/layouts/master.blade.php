@@ -326,32 +326,26 @@
                         </li> --}}
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link {{ Route::is('back.people-list.index') || Route::is('back.people-list.create') || Route::is('back.people-list.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'active' : 'collapsed' }}"
+                            <a class="nav-link menu-link {{ Route::is('back.volunteer.index') || Route::is('back.volunteer.create') || Route::is('back.volunteer.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'active' : 'collapsed' }}"
                                 href="#sidebarPeople" data-bs-toggle="collapse" role="button"
-                                aria-expanded="{{ Route::is('back.people-list.index') || Route::is('back.people-list.create') || Route::is('back.people-list.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'true' : 'false' }}"
+                                aria-expanded="{{ Route::is('back.volunteer.index') || Route::is('back.volunteer.create') || Route::is('back.volunteer.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'true' : 'false' }}"
                                 aria-controls="sidebarPeople">
                                 <i class="ri-team-fill"></i> <span data-key="t-apps">Volunteer</span>
                             </a>
-                            <div class="collapse menu-dropdown {{ Route::is('back.people-list.index') || Route::is('back.people-list.create') || Route::is('back.people-list.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'show' : '' }}"
+                            <div class="collapse menu-dropdown {{ Route::is('back.volunteer.index') || Route::is('back.volunteer.create') || Route::is('back.volunteer.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'show' : '' }}"
                                 id="sidebarPeople">
                                 <ul class="nav nav-sm flex-column">
 
                                     <li class="nav-item">
-                                        <a href="{{ route('back.people-list.index') }}"
-                                            class="nav-link {{ Route::is('back.people-list.index') ? 'active' : '' }}"
+                                        <a href="{{ route('back.volunteer.index') }}"
+                                            class="nav-link {{ Route::is('back.volunteer.index') ? 'active' : '' }}"
                                             data-key="t-mailbox"> All </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a href="{{ route('back.people-list.create') }}"
-                                            class="nav-link {{ Route::is('back.people-list.create') ? 'active' : '' }}"
+                                        <a href="{{ route('back.volunteer.create') }}"
+                                            class="nav-link {{ Route::is('back.volunteer.create') ? 'active' : '' }}"
                                             data-key="t-mailbox"> Create </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('back.people.index') }}"
-                                            class="nav-link {{ Route::is('back.people.create') || Route::is('back.people.edit') ? 'active' : '' }}"
-                                            data-key="t-mailbox"> Category </a>
                                     </li>
                                 </ul>
                             </div>

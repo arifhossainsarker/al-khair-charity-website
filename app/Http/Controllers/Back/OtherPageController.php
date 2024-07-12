@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Back;
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
 use App\Models\News;
-use App\Models\People;
 use App\Models\Research;
+use App\Models\Volunteer;
 use Illuminate\Http\Request;
 
 class OtherPageController extends Controller
@@ -15,9 +15,9 @@ class OtherPageController extends Controller
     {
         $news = News::count();
         $research = Research::count();
-        $people = People::count();
+        $volunteer = Volunteer::count();
         $donation = Donation::count();
 
-        return view('back.dashboard', compact('news', 'research', 'people', 'donation'));
+        return view('back.dashboard', compact('news', 'research', 'volunteer', 'donation'));
     }
 }

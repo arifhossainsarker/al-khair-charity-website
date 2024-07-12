@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title', 'Create Peoples')
+@section('title', 'Create volunteer')
 @section('head')
     <style>
         .additional-attribute {
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Peoples</h4>
+                        <h4 class="mb-sm-0">Volunteer</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
@@ -56,10 +56,10 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title mb-0 flex-grow-1">Create People</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">Create Volunteer</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('back.people-list.store') }}" method="POST"
+                                <form action="{{ route('back.volunteer.store') }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     <div class="row live-preview">
