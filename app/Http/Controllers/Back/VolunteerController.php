@@ -49,6 +49,7 @@ class VolunteerController extends Controller
             'gender' => 'required',
             'disability' => 'required',
 
+
         ];
 
 

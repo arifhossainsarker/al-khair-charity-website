@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title', 'Peoples')
+@section('title', 'Volunteer')
 
 @section('head')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Peoples</h4>
+                    <h4 class="mb-sm-0">Volunteers</h4>
 
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
@@ -32,9 +32,9 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="blog-table-header card-header">
-                        <h4 class="card-title mb-0 flex-grow-1">Peoples</h4>
-                        @isset(auth()->user()->role->permission['permission']['people']['add'])
-                        <a href="{{route('back.people-list.create')}}" class="btn btn-info float-right"><i class="ri-add-circle-line"></i> Create New</a>
+                        <h4 class="card-title mb-0 flex-grow-1">Volunteers</h4>
+                        @isset(auth()->user()->role->permission['permission']['volunteer']['add'])
+                        <a href="{{route('back.volunteer.create')}}" class="btn btn-info float-right"><i class="ri-add-circle-line"></i> Create New</a>
                         @endisset
                     </div><!-- end card header -->
 
@@ -44,38 +44,36 @@
                               <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Designation</th>
-                                <th scope="col">Department</th>
-                                <th scope="col">Category</th>
-                                <th scope="col">Serial</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Occupation</th>
                                 <th scope="col">Status</th>
                                 <th scope="col" class="text-right">Action</th>
                               </tr>
                             </thead>
                             <tbody>
-                                @foreach ($peopleLists as $key => $blog)
+                                @foreach ($volunteer as $key => $vol)
                                     <tr>
                                         <th scope="row">{{$key + 1}}</th>
-                                        <td>{!! $blog->name !!}</td>
-                                        <td>{!! $blog->designation !!}</td>
-                                        <td>{!! $blog->department !!}</td>
-                                        <td>{{ $blog->People->type }}</td>
-                                        <td>{{ $blog->serial }}</td>
+                                        <td>{!! $vol->name_title !!} {!! $vol->last_name !!}</td>
+                                        <td>{!! $vol->email !!}</td>
+                                        <td>{!! $vol->phone !!}</td>
+                                        <td>{{ $vol->occupation}}</td>
                                         <td>
-                                            @isset(auth()->user()->role->permission['permission']['people']['edit'])
+                                            @isset(auth()->user()->role->permission['permission']['volunteer']['edit'])
                                             @include('switcher::switch', [
-                                                'table' => 'people_lists',
-                                                'data' => $blog
+                                                'table' => 'volunteers',
+                                                'data' => $vol
                                             ])
                                             @endisset
                                         </td>
 
                                         <td class="text-right">
-                                            @isset(auth()->user()->role->permission['permission']['people']['edit'])
-                                            <a class="btn btn-sm btn-success" href="{{route('back.people-list.edit', $blog->id)}}"><i class="ri-edit-2-line"></i></a>
+                                            @isset(auth()->user()->role->permission['permission']['volunteer']['edit'])
+                                            <a class="btn btn-sm btn-success" href="{{route('back.volunteer.edit', $vol->id)}}"><i class="ri-edit-2-line"></i></a>
                                             @endisset
-                                            @isset(auth()->user()->role->permission['permission']['people']['delete'])
-                                            <form class="d-inline-block" action="{{route('back.people-list.destroy', $blog->id)}}" method="POST">
+                                            @isset(auth()->user()->role->permission['permission']['volunteer']['delete'])
+                                            <form class="d-inline-block" action="{{route('back.volunteer.destroy', $vol->id)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
 
