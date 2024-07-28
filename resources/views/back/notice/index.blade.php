@@ -34,7 +34,7 @@
                     <div class="blog-table-header card-header">
                         <h4 class="card-title mb-0 flex-grow-1">Notice Board</h4>
                         @isset(auth()->user()->role->permission['permission']['notice-board']['add'])
-                        <a href="{{route('back.alumni.create')}}" class="btn btn-info float-right"><i class="ri-add-circle-line"></i> Create New</a>
+                        <a href="{{route('back.notice-board.create')}}" class="btn btn-info float-right"><i class="ri-add-circle-line"></i> Create New</a>
                         @endisset
                     </div><!-- end card header -->
 
