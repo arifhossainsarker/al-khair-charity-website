@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title', 'Edit Peoples')
+@section('title', 'Edit Volunteer')
 @section('head')
     <style>
         .additional-attribute {
@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Peoples</h4>
+                        <h4 class="mb-sm-0">Volunteer</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
@@ -56,10 +56,10 @@
                     <div class="row">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title mb-0 flex-grow-1">Edit People</h4>
+                                <h4 class="card-title mb-0 flex-grow-1">Edit Volunteer</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('back.people-list.update', $peopleList->id) }}" method="POST"
+                                <form action="{{ route('back.volunteer.update', $volunteer->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PATCH')
@@ -67,23 +67,36 @@
                                         <div class="col-lg-8">
 
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-2">
                                                     <div class="form-group">
-                                                        <label for="name" class="form-label">Name <b
+                                                        <label for="name" class="form-label">Title <b
                                                                 style="color: red;">*</b></label>
-                                                        <input type="text" class="form-control" id="name"
-                                                            name="name" value="{{ old('name') ?? $peopleList->name }}"
-                                                            required>
+
+                                                        <select name="name_title" id="" class="form-select" required>
+                                                            <option value="Mr" {{ $volunteer->name_title == "Mr" ? 'selected' : '' }}>Mr</option>
+                                                            <option value="Mrs" {{ $volunteer->name_title == "Mrs" ? 'selected' : '' }}>Mrs</option>
+                                                            <option value="Miss" {{ $volunteer->name_title == "Miss" ? 'selected' : '' }}>Miss</option>
+                                                            <option value="Ms" {{ $volunteer->name_title == "Ms" ? 'selected' : '' }}>Ms</option>
+                                                            <option value="Dr" {{ $volunteer->name_title == "Dr" ? 'selected' : '' }}>Dr</option>
+                                                        </select>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-5">
                                                     <div class="form-group">
-                                                        <label for="email" class="form-label">Email <b
+                                                        <label for="first_name" class="form-label">First Name <b
                                                                 style="color: red;">*</b></label>
-                                                        <input type="text" class="form-control" id="email"
-                                                            name="email" value="{{ old('email') ?? $peopleList->email }}"
-                                                            required>
+                                                        <input type="text" class="form-control" id="first_name"
+                                                            name="first_name" value="{{ old('first_name') ?? $volunteer->first_name }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-5">
+                                                    <div class="form-group">
+                                                        <label for="last_name" class="form-label">Last Name <b
+                                                                style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="last_name"
+                                                            name="last_name" value="{{ old('last_name') ?? $volunteer->last_name }}" required>
                                                     </div>
                                                 </div>
 
@@ -92,112 +105,274 @@
                                             <br>
 
                                             <div class="row">
-                                                <div class="col-lg-6">
+                                                <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <label for="phone" class="form-label">Phone</label>
-                                                        <input type="text" class="form-control" id="phone"
-                                                            name="phone" value="{{ old('phone') ?? $peopleList->phone }}">
+                                                        <label for="email" class="form-label">Email <b
+                                                            style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="email"
+                                                            name="email" value="{{ old('email') ?? $volunteer->email }}" required>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-lg-6">
+
+                                                <div class="col-lg-4">
                                                     <div class="form-group">
-                                                        <label for="designation" class="form-label">Designation <b
+                                                        <label for="phone" class="form-label">Phone <b
                                                                 style="color: red;">*</b></label>
-                                                        <input type="text" class="form-control" id="designation"
-                                                            name="designation"
-                                                            value="{{ old('designation') ?? $peopleList->designation }}"
-                                                            required>
+                                                        <input type="text" class="form-control" id="phone"
+                                                            name="phone" value="{{ old('phone') ?? $volunteer->phone }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="dob" class="form-label">Date of Birth <b
+                                                                style="color: red;">*</b></label>
+                                                        <input type="date" class="form-control" id="dob"
+                                                            name="dob" value="{{ old('dob') ?? $volunteer->dob }}" required>
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="address" class="form-label">Address <b
+                                                            style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="address"
+                                                            name="address" value="{{ old('address') ?? $volunteer->address }}" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="street_address" class="form-label">Street Address</label>
+                                                        <input type="text" class="form-control" id="street_address"
+                                                            name="street_address" value="{{ old('street_address') ?? $volunteer->street_address }}" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <br>
+
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="address_line_2" class="form-label">Address Line 2 <b
+                                                            style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="address_line_2"
+                                                            name="address_line_2" value="{{ old('address_line_2') ?? $volunteer->address_line_2 }}" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="city" class="form-label">City</label>
+                                                        <input type="text" class="form-control" id="city"
+                                                            name="city" value="{{ old('city') ?? $volunteer->city }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="state" class="form-label">State</label>
+                                                        <input type="text" class="form-control" id="state"
+                                                            name="state" value="{{ old('state') ?? $volunteer->state }}" required>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="zip_code" class="form-label">Zip Code <b
+                                                            style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="zip_code"
+                                                            name="zip_code" value="{{ old('zip_code') ?? $volunteer->zip_code }}" required>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="country" class="form-label">Country</label>
+                                                        <input type="text" class="form-control" id="country"
+                                                            name="country" value="{{ old('country') ?? $volunteer->country }}" required>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="gender" class="form-label">Gender<b
+                                                            style="color: red;">*</b></label>
+
+                                                        <select name="gender" id="" class="form-select" required>
+                                                            <option value="Male" {{ $volunteer->gender == "Male" ? 'selected' : '' }}>Male</option>
+                                                            <option value="Female" {{ $volunteer->gender == "Female" ? 'selected' : '' }}>Female</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="disability" class="form-label">Disability</label>
+                                                        <select name="disability" id="" class="form-select" required>
+                                                            <option value="Yes" {{ $volunteer->disability == "Yes" ? 'selected' : '' }}>Yes</option>
+                                                            <option value="No" {{ $volunteer->disability == "No" ? 'selected' : '' }}>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
                                             <br>
 
                                             <div class="form-group">
-                                                <label for="editor" class="form-label">Description </label>
-                                                <textarea class="form-control" id="editor" placeholder="Enter the Description" name="bio">{{ old('bio') ?? $peopleList->bio }}</textarea>
+                                                <label for="disability_desc" class="form-label">Disability Description </label>
+                                                <textarea class="form-control" id="disability_desc" placeholder="Enter the Disibility Description" name="disability_desc" rows="5">{{ old('country') ?? $volunteer->disability_desc }}</textarea>
                                             </div>
                                             <br>
+                                            <div class="row">
+                                                <div class="card-header">
+                                                    <h4 class="card-title mb-0 flex-grow-1">Personal Information (Section Two)</h4>
+                                                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="volunteered_exp" class="form-label">Have You volunteered before?<b
+                                                            style="color: red;">*</b></label>
+
+                                                        <select name="volunteered_exp" id="" class="form-select" required>
+                                                            <option value="Yes" {{ $volunteer->volunteered_exp == "Yes" ? 'selected' : '' }}>Yes</option>
+                                                            <option value="No" {{ $volunteer->volunteered_exp == "No" ? 'selected' : '' }}>No</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="occupation" class="form-label">Occupation<b
+                                                            style="color: red;">*</b></label>
+
+                                                        <select name="occupation" id="" class="form-select" required>
+                                                            <option value="Unemployed" {{ $volunteer->occupation == "Unemployed" ? 'selected' : '' }}>Unemployed</option>
+                                                            <option value="Student (GCSE)" {{ $volunteer->occupation == "Student (GCSE)" ? 'selected' : '' }}>Student (GCSE)</option>
+                                                            <option value="Student (College)" {{ $volunteer->occupation == "Student (College)" ? 'selected' : '' }}>Student (College)</option>
+                                                            <option value="Student (University)" {{ $volunteer->occupation == "Student (University)" ? 'selected' : '' }}>Student (University)</option>
+                                                            <option value="Education" {{ $volunteer->occupation == "Education" ? 'selected' : '' }}>Education</option>
+                                                            <option value="Construction" {{ $volunteer->occupation == "Construction" ? 'selected' : '' }}>Construction</option>
+                                                            <option value="Sports" {{ $volunteer->occupation == "Sports" ? 'selected' : '' }}>Sports</option>
+                                                            <option value="Business" {{ $volunteer->occupation == "Business" ? 'selected' : '' }}>Business</option>
+                                                            <option value="IT" {{ $volunteer->occupation == "IT" ? 'selected' : '' }}>IT</option>
+                                                            <option value="Healthcare" {{ $volunteer->occupation == "Healthcare" ? 'selected' : '' }}>Healthcare</option>
+                                                            <option value="Engineering" {{ $volunteer->occupation == "Engineering" ? 'selected' : '' }}>Engineering</option>
+                                                            <option value="Retail" {{ $volunteer->occupation == "Retail" ? 'selected' : '' }}>Retail</option><option value="Charity">Charity</option>
+                                                            <option value="Hospitality" {{ $volunteer->occupation == "Hospitality" ? 'selected' : '' }}>Hospitality</option>
+                                                            <option value="Finance" {{ $volunteer->occupation == "Finance" ? 'selected' : '' }}>Finance</option>
+                                                            <option value="Government" {{ $volunteer->occupation == "Government" ? 'selected' : '' }}>Government</option>
+                                                            <option value="Military" {{ $volunteer->occupation == "Military" ? 'selected' : '' }}>Military</option>
+                                                            <option value="Science Other" {{ $volunteer->occupation == "Science Other" ? 'selected' : '' }}>Science &amp; Other</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-4">
+                                                    <div class="form-group">
+                                                        <label for="volunteering_area_int" class="form-label">Volunteering Area of Interest<b
+                                                            style="color: red;">*</b></label>
+
+                                                        <select name="volunteering_area_int" id="" class="form-select" required>
+                                                            <option value="Organising and Executing Events" {{ $volunteer->occupation == "Organising and Executing Events" ? 'selected' : '' }}>Organising and Executing Events</option>
+                                                            <option value="Fundraising Activities" {{ $volunteer->occupation == "Fundraising Activities" ? 'selected' : '' }}>Fundraising Activities</option>
+                                                            <option value="Facilitating Sport Events" {{ $volunteer->occupation == "Facilitating Sport Events" ? 'selected' : '' }}>Facilitating Sport Events</option>
+                                                            <option value="Marketing/Social Media Awareness" {{ $volunteer->occupation == "Marketing/Social Media Awareness" ? 'selected' : '' }}>Marketing/Social Media Awareness</option>
+                                                            <option value="TV Studio" {{ $volunteer->occupation == "TV Studio" ? 'selected' : '' }}>TV Studio</option>
+                                                            <option value="Office Work" {{ $volunteer->occupation == "Office Work" ? 'selected' : '' }}>Office Work</option>
+                                                            <option value="Charity Branches" {{ $volunteer->occupation == "Charity Branches" ? 'selected' : '' }}>Charity Branches</option>
+                                                            <option value="School & Education and Professional Skills" {{ $volunteer->occupation == "School & Education and Professional Skills" ? 'selected' : '' }}>School & Education and Professional Skills</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                         </div>
 
                                         <div class="col-lg-4">
-                                            <div class="img_group">
-
-
-                                                @if ($peopleList->media_id)
-                                                    <img class="img-thumbnail uploaded_img"
-                                                        src="{{ $peopleList->img_paths['small'] }}">
-
-                                                    <a href="{{ route('back.people-list.removeImage', $peopleList->id) }}"
-                                                        onclick="return confirm('Are you sure to remove?');"
-                                                        class="btn btn-sm btn-danger remove_image" title="Remove image"><i
-                                                            class="ri-delete-bin-5-line"></i></a>
-                                                @else
-                                                    <img class="img-thumbnail uploaded_img"
-                                                        src="{{ asset('img/default-img.png') }}">
-                                                @endif
-
-                                                <br>
-                                                <div class="form-group text-center">
-                                                    <div class="custom-file text-left ft_image">
-                                                        <label for="imageInput" class="image-button"><i
-                                                                class="ri-gallery-upload-line"></i> Choose Image</label>
-                                                        <input type="file" id="imageInput"
-                                                            class="custom-file-input image_upload form-control"
-                                                            name="image" accept="image/*">
-                                                    </div>
-
-                                                </div>
+                                            <div class="card-header">
+                                                <h4 class="card-title mb-0 flex-grow-1">Important Information (Section Three)</h4>
                                             </div>
-                                            <br>
+
 
                                             <div class="form-group">
-                                                <label for="location_address" class="form-label">Category <b
-                                                        style="color: red;">*</b></label>
-                                                <select name="people_id" id="" class="form-select" required>
-                                                    <option value="">Select Category</option>
-                                                    @foreach ($peoples as $item)
-                                                        <option value="{{ $item->id }}"
-                                                            {{ $item->id == $peopleList->people_id ? 'selected' : '' }}>
-                                                            {{ $item->type }}</option>
-                                                    @endforeach
-                                                </select>
+                                                <label for="location_map" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="ref_name"
+                                                    name="ref_name" value="{{ old('ref_name') ?? $volunteer->ref_name }}">
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <label for="location_map" class="form-label">Department</label>
-                                                <input type="text" class="form-control" id="department"
-                                                    name="department"
-                                                    value="{{ old('department') ?? $peopleList->department }}">
-                                            </div>
-                                            <br>
-                                            <div class="form-group">
-                                                <label for="website_link" class="form-label">Website</label>
-                                                <input type="url" class="form-control" id="website_link"
-                                                    name="website_link"
-                                                    value="{{ old('website_link') ?? $peopleList->website_link }}">
+                                                <label for="website_link" class="form-label">Relationship To You</label>
+                                                <input type="text" class="form-control" id="ref_relation"
+                                                    name="ref_relation" value="{{ old('ref_relation') ?? $volunteer->ref_relation }}">
                                             </div>
 
                                             <br>
 
                                             <div class="form-group">
-                                                <label for="research_interest" class="form-label">Research
-                                                    Interest</label>
-                                                <textarea name="research_interest" class="form-control" id="research_interest" cols="" rows="5">{{ old('research_interest') ?? $peopleList->research_interest }}</textarea>
+                                                <label for="ref_email" class="form-label">Email</label>
+                                                <input type="text" class="form-control" name="ref_email" id="ref_email" value="{{ old('ref_email') ?? $volunteer->ref_email }}">
                                             </div>
 
                                             <br>
 
                                             <div class="form-group">
-                                                <label for="address" class="form-label">Address</label>
-                                                <textarea name="address" class="form-control" id="address" cols="" rows="5">{{ old('address') ?? $peopleList->address }}</textarea>
+                                                <label for="ref_mobile" class="form-label">Mobile</label>
+                                                <input type="text" class="form-control" name="ref_mobile" id="ref_mobile" value="{{ old('ref_mobile') ?? $volunteer->ref_mobile }}">
+                                            </div>
+
+                                            <br>
+                                            <div class="card-header" style="padding: 20px 0;">
+                                                <h4 class="card-title mb-0 flex-grow-1">Emergency Contact</h4>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="emg_name" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="emg_name"
+                                                    name="emg_name" value="{{ old('emg_name') ?? $volunteer->emg_name }}">
                                             </div>
                                             <br>
                                             <div class="form-group">
-                                                <label for="serial" class="form-label">Display Serial</label>
-                                                <input type="number" name="serial" id="serial" class="form-control" value="{{ old('serial') ?? $peopleList->serial }}">
+                                                <label for="website_link" class="form-label">Relationship To You</label>
+                                                <input type="text" class="form-control" id="emg_relation"
+                                                    name="emg_relation" value="{{ old('emg_relation') ?? $volunteer->emg_relation }}">
                                             </div>
+
+                                            <br>
+
+                                            <div class="form-group">
+                                                <label for="emg_email" class="form-label">Email</label>
+                                                <input type="text" class="form-control" name="emg_email" id="emg_email" value="{{ old('emg_email') ?? $volunteer->emg_email }}">
+                                            </div>
+
+                                            <br>
+
+                                            <div class="form-group">
+                                                <label for="emg_mobile" class="form-label">Mobile</label>
+                                                <input type="text" class="form-control" name="emg_mobile" id="emg_mobile" value="{{ old('emg_mobile') ?? $volunteer->emg_mobile }}">
+                                            </div>
+
                                             <br>
 
                                             <div class="col-12">
@@ -213,406 +388,6 @@
                         </div>
                     </div>
                     <!-- Create form end -->
-
-                    {{-- qualification section start --}}
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card border-light mt-3 shadow">
-                                <div class="card-header">
-                                    <h5 class="d-inline-block">Tab List</h5>
-                                </div>
-                                <div class="card-body table-responsive">
-                                    <table class="table table-bordered table-sm" id="dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Position</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($people_qualifications as $key => $category)
-                                                <tr>
-                                                    <th scope="row">{{ $key + 1 }}</th>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <input type="text"
-                                                                class="form-control form-control-sm category_title"
-                                                                value="{{ $category->title }}">
-                                                            <div class="input-group-append">
-                                                                <button type="button" data-id="{{ $category->id }}"
-                                                                    class="btn btn-info btn-sm update_category"><i
-                                                                        class="ri-edit-2-line"></i></button>
-                                                            </div>
-                                                        </div>
-                                                        {{-- {{ $category->title }} --}}
-                                                    </td>
-                                                    <td>
-                                                        <div class="input-group">
-                                                            <input type="text"
-                                                                class="form-control form-control-sm qualification_position"
-                                                                value="{{ $category->position }}">
-                                                            <div class="input-group-append">
-                                                                <button type="button" data-id="{{ $category->id }}"
-                                                                    class="btn btn-info btn-sm update_qualification_position"><i
-                                                                        class="ri-edit-2-line"></i></button>
-                                                            </div>
-                                                        </div>
-                                                        {{-- {{ $category->position }} --}}
-                                                    </td>
-                                                    <td>
-                                                        @include('switcher::switch', [
-                                                            'table' => 'people_qualifications',
-                                                            'data' => $category,
-                                                        ])
-                                                    </td>
-                                                    <td>
-                                                        {{-- <a class="btn btn-primary btn-sm"
-                                                            href="{{ route('back.people-qualification.edit', $category->id) }}"><i
-                                                                class="ri-edit-2-line"></i></a> --}}
-                                                        <form class="d-inline-block"
-                                                            action="{{ route('back.people-qualification.destroy', $category->id) }}"
-                                                            method="POST">
-                                                            @method('DELETE')
-                                                            @csrf
-
-
-                                                            <button type="submit" class="btn btn-danger btn-sm"
-                                                                onclick="return confirm('Are you sure to remove?')"><i
-                                                                    class="ri-delete-bin-5-line"></i></button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card border-light mt-3 shadow">
-                                <div class="card-header">
-                                    <h5>Create Qualification Tab</h5>
-                                </div>
-
-                                <form action="{{ route('back.people-qualification.store') }}" method="POST">
-                                    @csrf
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label><b>Title*</b></label>
-                                                    <input type="hidden" name="people_list_id"
-                                                        value="{{ $peopleList->id }}">
-                                                    <input type="text" class="form-control" name="title"
-                                                        value="{{ old('title') }}" required>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label><b>Position</b></label>
-                                                    <input type="text" class="form-control" name="position"
-                                                        value="{{ old('position') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
-                                            style="width: 100%;">Create</button>
-                                        <br>
-                                        <small><b>NB: *</b> marked are required field.</small>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- qualification section end --}}
-
-                    {{-- qualification tab category --}}
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card border-light mt-3 shadow">
-                                <div class="card-header">
-                                    <h5 class="d-inline-block">Tab List Category</h5>
-                                </div>
-                                <div class="card-body table-responsive">
-                                    <table class="table table-bordered table-sm" id="dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Tab Name</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Position</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($people_qualifications as $_category)
-                                                @foreach ($_category->PeopleQualificationCategories as $key => $category)
-                                                    <tr>
-                                                        <th scope="row">{{ $key + 1 }}</th>
-                                                        <td>
-                                                            {{ $_category->title }}
-                                                        </td>
-                                                        <td>
-                                                            <div class="input-group">
-                                                                <input type="text"
-                                                                    class="form-control form-control-sm qualification_category_title"
-                                                                    value="{{ $category->title }}">
-                                                                <div class="input-group-append">
-                                                                    <button type="button" data-id="{{ $category->id }}"
-                                                                        class="btn btn-info btn-sm update_qualification_category_title"><i
-                                                                            class="ri-edit-2-line"></i></button>
-                                                                </div>
-                                                            </div>
-                                                            {{-- {{ $category->title }} --}}
-                                                        </td>
-                                                        <td>
-                                                            <div class="input-group">
-                                                                <input type="text"
-                                                                    class="form-control form-control-sm qualification_category_position"
-                                                                    value="{{ $category->position }}">
-                                                                <div class="input-group-append">
-                                                                    <button type="button" data-id="{{ $category->id }}"
-                                                                        class="btn btn-info btn-sm update_qualification_category_position"><i
-                                                                            class="ri-edit-2-line"></i></button>
-                                                                </div>
-                                                            </div>
-
-                                                            {{-- {{ $category->position }} --}}
-                                                        </td>
-                                                        <td>
-                                                            @include('switcher::switch', [
-                                                                'table' => 'people_qualification_categories',
-                                                                'data' => $category,
-                                                            ])
-                                                        </td>
-                                                        <td>
-                                                            {{-- <a class="btn btn-primary btn-sm"
-                                                                href="{{ route('back.people-qualification-category.edit', $category->id) }}"><i
-                                                                    class="ri-edit-2-line"></i></a> --}}
-                                                            <form class="d-inline-block"
-                                                                action="{{ route('back.people-qualification-category.destroy', $category->id) }}"
-                                                                method="POST">
-                                                                @method('DELETE')
-                                                                @csrf
-
-
-                                                                <button type="submit" class="btn btn-danger btn-sm"
-                                                                    onclick="return confirm('Are you sure to remove?')"><i
-                                                                        class="ri-delete-bin-5-line"></i></button>
-                                                            </form>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card border-light mt-3 shadow">
-                                <div class="card-header">
-                                    <h5>Create Qualification Tab Category</h5>
-                                </div>
-
-                                <form action="{{ route('back.people-qualification-category.store') }}" method="POST">
-                                    @csrf
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label><b>Tab</b></label>
-                                                    <select class="form-select" name="people_qualification_id"
-                                                        id="">
-                                                        <option value="">Select Tab</option>
-                                                        @foreach ($people_qualifications as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->title }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label><b>Title*</b></label>
-                                                    <input type="hidden" name="people_list_id"
-                                                        value="{{ $peopleList->id }}">
-                                                    <input type="text" class="form-control" name="title"
-                                                        value="{{ old('title') }}" required>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label><b>Position</b></label>
-                                                    <input type="text" class="form-control" name="position"
-                                                        value="{{ old('position') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
-                                            style="width: 100%;">Create</button>
-                                        <br>
-                                        <small><b>NB: *</b> marked are required field.</small>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- qualification tab category --}}
-
-                    {{-- qualification category value --}}
-                    <div class="row">
-                        <div class="col-md-8">
-                            <div class="card border-light mt-3 shadow">
-                                <div class="card-header">
-                                    <h5 class="d-inline-block">Tab List Category Value</h5>
-                                </div>
-                                <div class="card-body table-responsive">
-                                    <table class="table table-bordered table-sm" id="dataTable">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Tab Category Name</th>
-                                                <th scope="col">Title</th>
-                                                <th scope="col">Position</th>
-                                                <th scope="col">Status</th>
-                                                <th scope="col">Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($people_qualifications as $_category)
-                                                @foreach ($_category->PeopleQualificationCategories as $_category_)
-                                                    @foreach ($_category_->PeopleQualificationValues as $key => $category)
-                                                        <tr>
-                                                            <th scope="row">{{ $key + 1 }}</th>
-                                                            <td>
-                                                                {{ $_category_->title }}
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group">
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm qualification_category_value"
-                                                                        value="{{ $category->value }}">
-                                                                    <div class="input-group-append">
-                                                                        <button type="button"
-                                                                            data-id="{{ $category->id }}"
-                                                                            class="btn btn-info btn-sm update_qualification_category_value"><i
-                                                                                class="ri-edit-2-line"></i></button>
-                                                                    </div>
-                                                                </div>
-                                                                {{-- {{ $category->value }} --}}
-                                                            </td>
-                                                            <td>
-                                                                <div class="input-group">
-                                                                    <input type="text"
-                                                                        class="form-control form-control-sm qualification_category_value_position"
-                                                                        value="{{ $category->position }}">
-                                                                    <div class="input-group-append">
-                                                                        <button type="button"
-                                                                            data-id="{{ $category->id }}"
-                                                                            class="btn btn-info btn-sm update_qualification_category_value_position"><i
-                                                                                class="ri-edit-2-line"></i></button>
-                                                                    </div>
-                                                                </div>
-                                                                {{-- {{ $category->position }} --}}
-                                                            </td>
-                                                            <td>
-                                                                @include('switcher::switch', [
-                                                                    'table' => 'people_qualification_values',
-                                                                    'data' => $category,
-                                                                ])
-                                                            </td>
-                                                            <td>
-                                                                {{-- <a class="btn btn-primary btn-sm"
-                                                                    href="{{ route('back.people-qualification-value.edit', $category->id) }}"><i
-                                                                        class="ri-edit-2-line"></i></a> --}}
-                                                                <form class="d-inline-block"
-                                                                    action="{{ route('back.people-qualification-value.destroy', $category->id) }}"
-                                                                    method="POST">
-                                                                    @method('DELETE')
-                                                                    @csrf
-
-
-                                                                    <button type="submit" class="btn btn-danger btn-sm"
-                                                                        onclick="return confirm('Are you sure to remove?')"><i
-                                                                            class="ri-delete-bin-5-line"></i></button>
-                                                                </form>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-                                                @endforeach
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="card border-light mt-3 shadow">
-                                <div class="card-header">
-                                    <h5>Create Tab Category value</h5>
-                                </div>
-
-                                <form action="{{ route('back.people-qualification-value.store') }}" method="POST">
-                                    @csrf
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label><b>Tab</b></label>
-                                                    <select class="form-select" name="people_qualification_id"
-                                                        id="people_qualification">
-                                                        <option value="">Select Tab</option>
-                                                        @foreach ($people_qualifications as $item)
-                                                            <option value="{{ $item->id }}">{{ $item->title }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label><b>Tab Category</b></label>
-                                                    <select class="form-select" name="people_qualification_category_id"
-                                                        id="qualification_value">
-                                                    </select>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label><b>Title*</b></label>
-                                                    <input type="text" class="form-control" name="value"
-                                                        value="{{ old('value') }}" required>
-                                                </div>
-                                                <br>
-                                                <div class="form-group">
-                                                    <label><b>Position</b></label>
-                                                    <input type="text" class="form-control" name="position"
-                                                        value="{{ old('position') }}">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card-footer">
-                                        <button type="submit" class="btn btn-primary btn-lg btn-block"
-                                            style="width: 100%;">Create</button>
-                                        <br>
-                                        <small><b>NB: *</b> marked are required field.</small>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    {{-- qualification category value --}}
 
                 </div>
             </div>
@@ -665,187 +440,5 @@
         });
 
 
-        $(document).ready(function() {
-            $('#people_qualification').on('change', function() {
-                var people_qualification_id = this.value;
-
-                $("#qualification_value").html('');
-                $.ajax({
-                    url: "{{ url('adminx/people-qualification-id') }}",
-                    type: "POST",
-                    data: {
-                        people_qualification_id: people_qualification_id,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    dataType: 'json',
-                    success: function(result) {
-                        console.log(result);
-                        $('#qualification_value').html(
-                            '<option value="">Select Category</option>');
-                        $.each(result, function(key, value) {
-                            $("#qualification_value").append('<option value="' + value
-                                .id + '">' + value.title + '</option>');
-                        });
-                    }
-                });
-            });
-        });
-
-        // tab list title update
-        $(document).on('click', '.update_category', function() {
-            let id = $(this).data('id');
-            let title = $(this).closest('tr').find('.category_title').val();
-
-            cLoader();
-
-            $.ajax({
-                url: "{{ route('back.qualification.updateAjax') }}",
-                method: 'POST',
-                data: {
-                    title,
-                    id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    cLoader('h');
-                    cAlert('success', 'Category updated successfully.');
-                },
-                error: function() {
-                    cLoader('h');
-                    cAlert();
-                }
-            });
-        });
-
-        $(document).on('click', '.update_qualification_position', function() {
-            let id = $(this).data('id');
-            let position = $(this).closest('tr').find('.qualification_position').val();
-
-            cLoader();
-
-            $.ajax({
-                url: "{{ route('back.qualification-position.updateAjax') }}",
-                method: 'POST',
-                data: {
-                    position,
-                    id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    cLoader('h');
-                    cAlert('success', 'Category updated successfully.');
-                },
-                error: function() {
-                    cLoader('h');
-                    cAlert();
-                }
-            });
-        });
-
-        // qualification category update
-
-        $(document).on('click', '.update_qualification_category_title', function() {
-            let id = $(this).data('id');
-            let title = $(this).closest('tr').find('.qualification_category_title').val();
-
-            cLoader();
-
-            $.ajax({
-                url: "{{ route('back.qualification-category.updateAjax') }}",
-                method: 'POST',
-                data: {
-                    title,
-                    id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    cLoader('h');
-                    cAlert('success', 'Qualification Category updated successfully.');
-                },
-                error: function() {
-                    cLoader('h');
-                    cAlert();
-                }
-            });
-        });
-
-        $(document).on('click', '.update_qualification_category_position', function() {
-            let id = $(this).data('id');
-            let position = $(this).closest('tr').find('.qualification_category_position').val();
-
-            cLoader();
-
-            $.ajax({
-                url: "{{ route('back.qualification-category-position.updateAjax') }}",
-                method: 'POST',
-                data: {
-                    position,
-                    id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    cLoader('h');
-                    cAlert('success', 'Qualification Category updated successfully.');
-                },
-                error: function() {
-                    cLoader('h');
-                    cAlert();
-                }
-            });
-        });
-
-        // qualification category value
-
-
-
-        $(document).on('click', '.update_qualification_category_value', function() {
-            let id = $(this).data('id');
-            let title = $(this).closest('tr').find('.qualification_category_value').val();
-
-            cLoader();
-
-            $.ajax({
-                url: "{{ route('back.qualification-category-value.updateAjax') }}",
-                method: 'POST',
-                data: {
-                    title,
-                    id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    cLoader('h');
-                    cAlert('success', 'Qualification Category Value updated successfully.');
-                },
-                error: function() {
-                    cLoader('h');
-                    cAlert();
-                }
-            });
-        });
-
-        $(document).on('click', '.update_qualification_category_value_position', function() {
-            let id = $(this).data('id');
-            let position = $(this).closest('tr').find('.qualification_category_value_position').val();
-
-            cLoader();
-
-            $.ajax({
-                url: "{{ route('back.qualification-category-value-position.updateAjax') }}",
-                method: 'POST',
-                data: {
-                    position,
-                    id,
-                    _token: '{{ csrf_token() }}'
-                },
-                success: function() {
-                    cLoader('h');
-                    cAlert('success', 'Qualification Category Value updated successfully.');
-                },
-                error: function() {
-                    cLoader('h');
-                    cAlert();
-                }
-            });
-        });
     </script>
 @endsection

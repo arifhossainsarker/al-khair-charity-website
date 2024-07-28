@@ -160,17 +160,17 @@
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[people][view]" value="1" @isset($permission['permission']['volunteer']['view'])
+                                    <input type="checkbox" name="permission[volunteer][view]" value="1" @isset($permission['permission']['volunteer']['view'])
                                     checked
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[people][delete]" value="1" @isset($permission['permission']['volunteer']['delete'])
+                                    <input type="checkbox" name="permission[volunteer][delete]" value="1" @isset($permission['permission']['volunteer']['delete'])
                                     checked
                                     @endisset>
                                 </td>
                                 <td>
-                                    <input type="checkbox" name="permission[people][list]" value="1" @isset($permission['permission']['volunteer']['list'])
+                                    <input type="checkbox" name="permission[volunteer][list]" value="1" @isset($permission['permission']['volunteer']['list'])
                                     checked
                                     @endisset>
                                 </td>
