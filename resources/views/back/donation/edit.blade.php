@@ -100,16 +100,18 @@
                                                 </div>
                                             </div>
                                             <br>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label for="amount" class="form-label">Payment Method<b
-                                                            style="color: red;">*</b></label>
+                                           <div class="col-lg-4">
+                                                <div class="col-lg-12">
+                                                    <div class="form-group">
+                                                        <label for="amount" class="form-label">Payment Method<b
+                                                                style="color: red;">*</b></label>
 
-                                                    <select name="payment_method" class="form-control" id="">
-                                                        <option>Select Method</option>
-                                                        <option value="1">Cash</option>
-                                                        <option value="2">Bank Transfer</option>
-                                                    </select>
+                                                        <select name="payment_method" class="form-select" id="">
+                                                            <option value="">Select Method</option>
+                                                            <option value="1" {{ $donation->payment_method == 1 ? 'selected' : '' }}>Cash</option>
+                                                            <option value="2" {{ $donation->payment_method == 2 ? 'selected' : '' }}>Bank Transfer</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <br>

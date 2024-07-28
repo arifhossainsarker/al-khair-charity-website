@@ -101,7 +101,7 @@
                                                         <label for="amount" class="form-label">Payment Method<b
                                                                 style="color: red;">*</b></label>
 
-                                                        <select name="payment_method" class="form-control" id="">
+                                                        <select name="payment_method" class="form-select" id="">
                                                             <option value="">Select Method</option>
                                                             <option value="1">Cash</option>
                                                             <option value="2">Bank Transfer</option>
