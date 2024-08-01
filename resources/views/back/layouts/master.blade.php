@@ -298,32 +298,6 @@
                             </div>
                         </li>
 
-                        {{-- <li class="nav-item">
-                            <a class="nav-link menu-link {{ Route::is('back.research.index') || Route::is('back.research.create') || Route::is('back.research.edit') ? 'active' : 'collapsed' }}"
-                                href="#sidebarResearch" data-bs-toggle="collapse" role="button"
-                                aria-expanded="{{ Route::is('back.research.index') || Route::is('back.research.create') || Route::is('back.research.edit') ? 'true' : 'false' }}"
-                                aria-controls="sidebarResearch">
-                                <i class="ri-flask-line"></i> <span data-key="t-apps">Research</span>
-                            </a>
-                            <div class="collapse menu-dropdown {{ Route::is('back.research.index') || Route::is('back.research.create') || Route::is('back.research.edit') ? 'show' : '' }}"
-                                id="sidebarResearch">
-                                <ul class="nav nav-sm flex-column">
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('back.research.index') }}"
-                                            class="nav-link {{ Route::is('back.research.index') ? 'active' : '' }}"
-                                            data-key="t-mailbox"> All </a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="{{ route('back.research.create') }}"
-                                            class="nav-link {{ Route::is('back.research.create') ? 'active' : '' }}"
-                                            data-key="t-mailbox"> Create </a>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </li> --}}
 
                         <li class="nav-item">
                             <a class="nav-link menu-link {{ Route::is('back.volunteer.index') || Route::is('back.volunteer.create') || Route::is('back.volunteer.edit') || Route::is('back.people.index') || Route::is('back.people.edit') ? 'active' : 'collapsed' }}"
@@ -372,6 +346,12 @@
                                         <a href="{{ route('back.donation.create') }}"
                                             class="nav-link {{ Route::is('back.donation.create') ? 'active' : '' }}"
                                             data-key="t-mailbox"> Create </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a href="{{ route('back.donation.categories') }}"
+                                            class="nav-link {{ Route::is('back.donation.categories') ? 'active' : '' }}"
+                                            data-key="t-mailbox"> Category </a>
                                     </li>
 
                                 </ul>

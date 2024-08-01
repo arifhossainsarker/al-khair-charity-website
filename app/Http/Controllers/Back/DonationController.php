@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\Http\Controllers\Controller;
 use App\Models\Donation;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\File;
 use App\Repositories\MediaRepo;
@@ -130,5 +131,33 @@ class DonationController extends Controller
         $donation->delete();
 
         return redirect()->route('back.donation.index')->with('success-alert', 'Donation deleted successfully.');
+    }
+
+    /**
+     * Donation Category
+     *
+     */
+
+     public function categories()
+    {
+        $categories = Category::where('category_id', null)->where('for', 'donation')->latest('id')->get();
+        return view('back.donation.categories', compact('categories'));
+    }
+
+    public function categoriesCreate($id)
+    {
+        $categories = Category::where('category_id', null)->where('for', 'donation')->latest('id')->get();
+        $cat = Category::where('id', $id)->first();
+
+        return view('back.donation.category-edit', compact('categories', 'cat'));
+    }
+
+    public function removeImage(Donation $donation)
+    {
+        $donation->image = null;
+        $donation->media_id = null;
+        $donation->save();
+
+        return redirect()->back()->with('success-alert', 'Donation images deleted successfully.');
     }
 }

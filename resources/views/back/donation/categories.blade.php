@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title', 'Edit News Categories')
+@section('title', 'Donation Categories')
 
 @section('head')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
@@ -58,7 +58,7 @@
                                             ])
                                         </td>
                                         <td>
-                                            <a class="btn btn-primary btn-sm" href="{{route('back.news.categories.edit', $category->id)}}"><i class="ri-edit-2-line"></i></a>
+                                            <a class="btn btn-primary btn-sm" href="{{route('back.donation.categories.edit', $category->id)}}"><i class="ri-edit-2-line"></i></a>
                                             <form class="d-inline-block" action="{{route('back.categories.destroy', $category->id)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
@@ -81,30 +81,29 @@
                         <h5>Create Category</h5>
                     </div>
 
-                    <form action="{{route('back.categories.update', $cat->id)}}" method="POST">
+                    <form action="{{route('back.categories.store')}}" method="POST">
                         @csrf
-                        @method('PATCH')
 
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label><b>Title*</b></label>
-                                        <input type="hidden" name="for" value="news">
-                                        <input type="text" class="form-control" name="title" value="{{old('title') ?? $cat->title}}" required>
+                                        <input type="hidden" name="for" value="donation">
+                                        <input type="text" class="form-control" name="title" value="{{old('title')}}" required>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label><b>Slug</b></label>
-                                        <input type="text" class="form-control" name="slug" value="{{old('slug') ?? $cat->slug}}">
+                                        <input type="text" class="form-control" name="slug" value="{{old('slug')}}">
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 100%;">Update</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" style="width: 100%;">Create</button>
                             <br>
                             <small><b>NB: *</b> marked are required field.</small>
                         </div>

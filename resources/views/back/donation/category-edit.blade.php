@@ -1,5 +1,5 @@
 @extends('back.layouts.master')
-@section('title', 'Edit News Categories')
+@section('title', 'Edit Donation Categories')
 
 @section('head')
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
@@ -58,7 +58,7 @@
                                             ])
                                         </td>
                                         <td>
-                                            <a class="btn btn-primary btn-sm" href="{{route('back.news.categories.edit', $category->id)}}"><i class="ri-edit-2-line"></i></a>
+                                            <a class="btn btn-primary btn-sm" href="{{route('back.donation.categories.edit', $category->id)}}"><i class="ri-edit-2-line"></i></a>
                                             <form class="d-inline-block" action="{{route('back.categories.destroy', $category->id)}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
@@ -90,7 +90,7 @@
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label><b>Title*</b></label>
-                                        <input type="hidden" name="for" value="news">
+                                        <input type="hidden" name="for" value="donation">
                                         <input type="text" class="form-control" name="title" value="{{old('title') ?? $cat->title}}" required>
                                     </div>
                                 </div>
