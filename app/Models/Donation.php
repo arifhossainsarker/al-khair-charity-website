@@ -16,6 +16,7 @@ class Donation extends Model
      */
     protected $fillable = [
         'name',
+        'category_id',
         'email',
         'phone',
         'address',
@@ -24,6 +25,11 @@ class Donation extends Model
         'payment_method',
         'status',
     ];
+
+    // Category
+    public function Category(){
+        return $this->belongsTo(Category::class);
+    }
 
 
 }

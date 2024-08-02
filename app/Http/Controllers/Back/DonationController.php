@@ -30,7 +30,8 @@ class DonationController extends Controller
      */
     public function create(Request $request)
     {
-        return view('back.donation.create');
+        $categories = Category::where('for', 'donation')->active()->get();
+        return view('back.donation.create', compact('categories'));
     }
 
     /**
@@ -41,6 +42,7 @@ class DonationController extends Controller
     {
         $v_data = [
             'name' => 'required|max:255',
+            'category' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'amount' => 'required',
@@ -53,6 +55,7 @@ class DonationController extends Controller
 
         $donation = new Donation();
         $donation->name = $request->name;
+        $donation->category_id = $request->category;
         $donation->email = $request->email;
         $donation->phone = $request->phone;
         $donation->address = $request->address;
@@ -83,7 +86,8 @@ class DonationController extends Controller
     public function edit($donation)
     {
         $donation = Donation::findOrFail($donation);
-        return view('back.donation.edit', compact('donation'));
+        $categories = Category::where('for', 'donation')->active()->get();
+        return view('back.donation.edit', compact('donation', 'categories'));
     }
 
     /**
@@ -96,6 +100,7 @@ class DonationController extends Controller
 
         $v_data = [
             'name' => 'required|max:255',
+            'category' => 'required',
             'email' => 'required',
             'phone' => 'required',
             'amount' => 'required',
@@ -107,6 +112,7 @@ class DonationController extends Controller
 
         $donation = Donation::findOrFail($donation);
         $donation->name = $request->name;
+        $donation->category_id = $request->category;
         $donation->email = $request->email;
         $donation->phone = $request->phone;
         $donation->address = $request->address;

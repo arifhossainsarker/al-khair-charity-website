@@ -39,13 +39,30 @@
                                     <div class="row live-preview">
                                         <div class="col-lg-8">
 
-                                            <div class="form-group">
-                                                <label for="title" class="form-label">Name <b
-                                                        style="color: red;">*</b></label>
-                                                <input type="text" class="form-control" id="title" name="name"
-                                                    value="{{ old('name') }}" required>
-                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="title" class="form-label">Name <b
+                                                                style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="title" name="name"
+                                                            value="{{ old('name') }}" required>
+                                                    </div>
+                                                </div>
 
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="floatingSelect">Category <b style="color: red;">*</b></label>
+                                                        <select class="form-control" id="categorySelect"
+                                                            aria-label="Floating label select example" name="category">
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->id }}">{{ $category->title }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                            </div>
                                             <br>
                                             <div class="row">
                                                 <div class="col-lg-6">
@@ -146,11 +163,11 @@
         });
 
         // CKEditor
-        $(function() {
-            CKEDITOR.replace('aeditor', {
-                height: 100
-            });
-        });
+        // $(function() {
+        //     CKEDITOR.replace('aeditor', {
+        //         height: 100
+        //     });
+        // });
 
 
         $(document).on('click', '.video_radio', function() {

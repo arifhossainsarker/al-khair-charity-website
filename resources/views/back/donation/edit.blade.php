@@ -41,11 +41,29 @@
                                         <div class="col-lg-8">
 
 
-                                            <div class="form-group">
-                                                <label for="title" class="form-label">Name <b
-                                                        style="color: red;">*</b></label>
-                                                <input type="text" class="form-control" id="title" name="name"
-                                                    value="{{ old('name') ?? $donation->name }}" required>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="title" class="form-label">Name <b
+                                                                style="color: red;">*</b></label>
+                                                        <input type="text" class="form-control" id="title" name="name"
+                                                            value="{{ old('name') ?? $donation->name }}" required>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label for="floatingSelect">Category <b style="color: red;">*</b></label>
+                                                        <select class="form-control" id="categorySelect"
+                                                            aria-label="Floating label select example" name="category">
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->id }}">{{ $category->title }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                             </div>
 
                                             <br>
@@ -150,39 +168,12 @@
         });
 
         // CKEditor
-        $(function() {
-            CKEDITOR.replace('aeditor', {
-                height: 100
-            });
-        });
+        // $(function() {
+        //     CKEDITOR.replace('aeditor', {
+        //         height: 100
+        //     });
+        // });
 
-        $(document).on('click', '.video_radio', function() {
-            let video_type = $(this).val();
 
-            if (video_type == 'File') {
-                $('.video_input').show();
-                $('.video_embade_code').hide();
-            } else {
-                $('.video_input').hide();
-                $('.video_embade_code').show();
-            }
-        });
-        $(document).on('click', '.feature_type_radio', function() {
-            let ft = $(this).val();
-
-            if (ft == 0) {
-                $('.ft_image').show();
-                $('.uploaded_img').show();
-                $('.ft_video').hide();
-            } else {
-                $('.ft_image').hide();
-                $('.uploaded_img').hide();
-                $('.ft_video').show();
-            }
-        });
-
-        $(document).ready(function() {
-            $('#categorySelect').select2();
-        });
     </script>
 @endsection
