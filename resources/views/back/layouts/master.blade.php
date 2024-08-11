@@ -326,13 +326,13 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link {{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') ? 'active' : 'collapsed' }}"
+                            <a class="nav-link menu-link {{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') || Route::is('back.donation.categories') ? 'active' : 'collapsed' }}"
                                 href="#sidebarAlumni" data-bs-toggle="collapse" role="button"
-                                aria-expanded="{{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') ? 'true' : 'false' }}"
+                                aria-expanded="{{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') || Route::is('back.donation.categories') ? 'true' : 'false' }}"
                                 aria-controls="sidebarAlumni">
                                 <i class="ri-user-star-fill"></i> <span data-key="t-apps">Donations</span>
                             </a>
-                            <div class="collapse menu-dropdown {{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') ? 'show' : '' }}"
+                            <div class="collapse menu-dropdown {{ Route::is('back.donation.index') || Route::is('back.donation.create') || Route::is('back.donation.edit') || Route::is('back.donation.categories') ? 'show' : '' }}"
                                 id="sidebarAlumni">
                                 <ul class="nav nav-sm flex-column">
 
