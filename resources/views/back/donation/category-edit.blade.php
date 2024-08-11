@@ -81,7 +81,7 @@
                         <h5>Create Category</h5>
                     </div>
 
-                    <form action="{{route('back.categories.update', $cat->id)}}" method="POST">
+                    <form action="{{route('back.categories.update', $cat->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
 
@@ -94,10 +94,36 @@
                                         <input type="text" class="form-control" name="title" value="{{old('title') ?? $cat->title}}" required>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label><b>Slug</b></label>
-                                        <input type="text" class="form-control" name="slug" value="{{old('slug') ?? $cat->slug}}">
+                                        <label><b>Short Description</b></label>
+                                        <textarea class="form-control" id="sdeditor" placeholder="Enter short Description" name="short_description">{{ old('short_description') ?? $cat->short_description }}</textarea>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label><b>Description</b></label>
+                                        <textarea class="form-control" id="deditor" placeholder="Enter short Description" name="description">{{ old('description') ?? $cat->description }}</textarea>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="col-md-12">
+                                    <div class="img_group">
+                                        <img class="img-thumbnail uploaded_img"
+                                            src="{{ $cat->img_paths['small'] ?? asset('img/default-img.png') }}">
+                                        <br>
+                                        <div class="form-group text-center">
+
+                                            <div class="custom-file text-left ft_image">
+                                                <label for="imageInput" class="image-button"><i class="ri-gallery-upload-line"></i> Choose Image</label>
+                                                <input type="file"
+                                                    id="imageInput" class="custom-file-input image_upload form-control" name="image"
+                                                    accept="image/*">
+                                            </div>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -121,6 +147,7 @@
 
 @section('footer')
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.js"></script>
+<script src="https://cdn.ckeditor.com/4.22.1/standard/ckeditor.js"></script>
 
 <script>
     $(document).ready( function () {
@@ -128,5 +155,32 @@
             order: [[0, "desc"]],
         });
     });
+
+     // CKEditor
+     $(function() {
+            CKEDITOR.replace('sdeditor', {
+                height: 100
+            });
+        });
+
+         // CKEditor
+         $(function() {
+            CKEDITOR.replace('deditor', {
+                height: 100
+            });
+        });
+
+        $(document).on('click', '.feature_type_radio', function() {
+            let ft = $(this).val();
+
+            if (ft == 0) {
+                $('.ft_image').show();
+
+            } else {
+                $('.ft_image').hide();
+                $('.uploaded_img').hide();
+
+            }
+        });
 </script>
 @endsection

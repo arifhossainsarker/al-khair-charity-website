@@ -41,6 +41,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+
         $v_data = [
             'title' => 'required|max:255'
         ];
