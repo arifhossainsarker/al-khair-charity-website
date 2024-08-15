@@ -11,10 +11,10 @@
         {{-- Welcome area start --}}
         @foreach ($home_sections as $key => $sec)
             @if ($sec->section_design_type_id == 7)
-                <div class="container bg-white">
-                    <div class="lg:flex mt-5 pb-10 border-t border-gray-500">
+                <div class="bg-white">
+                    <div class="lg:flex pb-10 border-t border-gray-500">
                         <!-- welcome slider -->
-                        <div class="lg:w-1/2 w-full">
+                        <div class="w-full">
                             <div class="slider-area">
                                 <!-- single slider -->
                                 @foreach ($sliders as $key => $slider)
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <!-- welcome content -->
-                        <div class="lg:w-1/2 w-full px-6">
+                        {{-- <div class="lg:w-1/2 w-full px-6">
                             <h2 class=" py-8 uppercase text-3xl primary-color">{{ $sec->title }}</h2>
                             <div class=" text-gray-500 text-lg leading-8 pr-10 text-justify">
                                 {!! \Illuminate\Support\Str::limit($sec->description, 800) !!}
@@ -47,7 +47,7 @@
                                     href="{{ $sec->button_url }}">
                                     {{ $sec->button_name }}</a>
                             </p>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
                 {{-- Welcome area end --}}

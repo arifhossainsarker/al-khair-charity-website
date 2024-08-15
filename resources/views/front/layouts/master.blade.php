@@ -119,10 +119,10 @@
 <body class="">
     <div class="app">
         {{-- Header area start --}}
-        <header class="">
+        <header class="nav-bg">
             <!-- Top Header Start -->
-            <div class="container bg-white">
-                <div class="container-box">
+            <div class="container">
+                <div class="">
                     <div class="py-6 flex justify-between">
                         <div class="flex">
                             <div class="pr-5">
@@ -130,32 +130,60 @@
                                     <img class="w-20" src="{{ $settings_g['logo'] ?? '' }}" alt="">
                                 </a>
                             </div>
-                            <div class="mt-10 md:block hidden">
-                                <h4 class=" text-xl primary-color font-bold">{{ $settings_g['title'] ?? '' }}</h4>
-                                <h2 class=" text-2xl logo-red-color font-bold">{{ $settings_g['slogan'] ?? '' }}</h2>
+                            <div class="md:block hidden">
+                                <div>
+                                    <p class="pt-2 pb-2 ml-5 flex justify-center">
+                                        <a class="px-5 py-3 bg-white text-red-500 font-semibold text-white rounded hover:bg-blue-900 hover:text-yellow-300"
+                                            href="">Donation</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="lg:flex hidden items-center">
-                            {{-- <form action="{{ route('search') }}" method="GET">
-                                <div class="flex justify-between">
-                                    <input
-                                        class="border-2 border-solid border-gray-500 py-5 w-full h-10 focus:outline-none px-5 rounded-md mr-5"
-                                        type="search" name="search" id="" placeholder="Search">
-                                    <button
-                                        class="px-4 py-2 btn-bg text-white rounded hover:bg-blue-900 hover:text-yellow-300"
-                                        type="submit">Search</button>
-                                </div>
-                            </form> --}}
+                            <div class="container-box">
+                                @if ($main_menu)
+                                    <ul class="flex text-white  main-menu">
+                                        <li><a class="px-4 text-lg {{ url('/') == url()->current() ? 'active' : '' }}"
+                                                href="{{ route('homepage') }}">Home</a></li>
 
-                            {{-- <ul class="flex justify-between">
-                                <li>
-                                    <a class=" text-sm primary-color font-bold border-r-2 border-blue-900 pr-4"
-                                        href="/">Login</a>
-                                </li>
-                                <li>
-                                    <a class=" text-sm primary-color font-bold pl-4" href="/">Help</a>
-                                </li>
-                            </ul> --}}
+                                        @foreach ($main_menu->SingleMenuItems as $item)
+                                            <li class="hoverable">
+                                                <a class="px-4 text-lg"
+                                                    href="{{ $item->menu_info['url'] }}">{{ $item->menu_info['text'] }}</a>
+                                                @if (count($item->Items))
+                                                    <div class="p-0 sub-menu mb-16 sm:mb-0 shadow-xl bg-white">
+                                                        <ul>
+                                                            @foreach ($item->Items as $item)
+                                                                <li class="p-2 text-sm font-normal text-gray-400 hoverable">
+                                                                    <a
+                                                                        href="{{ $item->menu_info['url'] }}">{{ $item->menu_info['text'] }}</a>
+                                                                    @if (count($item->Items))
+                                                                        <ul
+                                                                            class="submenu p-0 mb-16 sm:mb-0 shadow-xl bg-white">
+                                                                            @foreach ($item->Items as $sub_sub_menu)
+                                                                                @if ($sub_sub_menu->menu_info['text'])
+                                                                                    <li
+                                                                                        class="p-2 text-sm font-normal text-gray-400 hoverable">
+                                                                                        <a
+                                                                                            href="{{ $sub_sub_menu->menu_info['url'] }}">{{ $sub_sub_menu->menu_info['text'] }}</a>
+                                                                                    </li>
+                                                                                @endif
+                                                                            @endforeach
+                                                                        </ul>
+                                                                    @endif
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                @endif
+                                            </li>
+                                        @endforeach
+
+                                    </ul>
+                                @else
+                                    <p class="text-danger text-right">Please create "Main Menu"</p>
+                                @endif
+                            </div>
                         </div>
                         <div class="lg:hidden text-right">
                             <button class="navbar-burger flex items-center text-black p-3">
@@ -169,56 +197,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Navbar Area -->
-            <nav class="container">
-                <div class="hidden lg:block nav-bg py-4">
-                    <div class="container-box">
-                        @if ($main_menu)
-                            <ul class="flex text-white  main-menu">
-                                <li><a class="px-4 text-lg {{ url('/') == url()->current() ? 'active' : '' }}"
-                                        href="{{ route('homepage') }}">Home</a></li>
 
-                                @foreach ($main_menu->SingleMenuItems as $item)
-                                    <li class="hoverable">
-                                        <a class="px-4 text-lg"
-                                            href="{{ $item->menu_info['url'] }}">{{ $item->menu_info['text'] }}</a>
-                                        @if (count($item->Items))
-                                            <div class="p-0 sub-menu mb-16 sm:mb-0 shadow-xl bg-white">
-                                                <ul>
-                                                    @foreach ($item->Items as $item)
-                                                        <li class="p-2 text-sm font-normal text-gray-400 hoverable">
-                                                            <a
-                                                                href="{{ $item->menu_info['url'] }}">{{ $item->menu_info['text'] }}</a>
-                                                            @if (count($item->Items))
-                                                                <ul
-                                                                    class="submenu p-0 mb-16 sm:mb-0 shadow-xl bg-white">
-                                                                    @foreach ($item->Items as $sub_sub_menu)
-                                                                        @if ($sub_sub_menu->menu_info['text'])
-                                                                            <li
-                                                                                class="p-2 text-sm font-normal text-gray-400 hoverable">
-                                                                                <a
-                                                                                    href="{{ $sub_sub_menu->menu_info['url'] }}">{{ $sub_sub_menu->menu_info['text'] }}</a>
-                                                                            </li>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </ul>
-                                                            @endif
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                    </li>
-                                @endforeach
-
-                            </ul>
-                        @else
-                            <p class="text-danger text-right">Please create "Main Menu"</p>
-                        @endif
-                    </div>
-
-                </div>
-            </nav>
 
             {{-- mobile menu --}}
             <div class="navbar-menu relative z-50 hidden">
