@@ -12,7 +12,7 @@
         @foreach ($home_sections as $key => $sec)
             @if ($sec->section_design_type_id == 7)
                 <div class="bg-white">
-                    <div class="lg:flex pb-10 border-t border-gray-500">
+                    <div class="lg:flex border-t border-gray-500">
                         <!-- welcome slider -->
                         <div class="w-full">
                             <div class="slider-area">
@@ -51,6 +51,138 @@
                     </div>
                 </div>
                 {{-- Welcome area end --}}
+
+                {{-- Donation Category Section --}}
+                <div class=" bg-gray-300 pt-16 pb-16">
+                    <div class="container">
+                        <div class="md:grid md:grid-cols-4 lg:grid-cols-4 md:gap-4 lg:mr-5 mb-8">
+                            <div class="pl-4 pt-4 pb-4">
+                                <div class="">
+                                    <div class="">
+                                        <img class="object-cover mr-5"
+                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
+                                    </div>
+                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
+                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pl-4 pt-4 pb-4">
+                                <div class="">
+                                    <div class="">
+                                        <img class="object-cover mr-5"
+                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
+                                    </div>
+                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
+                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pl-4 pt-4 pb-4">
+                                <div class="">
+                                    <div class="">
+                                        <img class="object-cover mr-5"
+                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
+                                    </div>
+                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
+                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="pl-4 pt-4 pb-4">
+                                <div class="">
+                                    <div class="">
+                                        <img class="object-cover mr-5"
+                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
+                                    </div>
+                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
+                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                {{-- Donation Category Section end --}}
+
+                {{-- About us Section --}}
+                <div class=" bg-white pt-16 pb-16">
+                    <div class="container">
+                        <div class=" md:grid md:grid-cols-2 lg:grid-cols-2 lg:mr-5 mb-8">
+                            {{-- about content section --}}
+                             <div class="about">
+                                <span class=" text-blue-900 text-base">SINCE 2003</span>
+                                <h2 class=" text-black font-semibold text-5xl pt-5 pb-6">Balance Without Compromise</h2>
+                                <p>Al-Khair Foundation is a leading faith-based UK charity which provides emergency relief and developmental support in some of the world’s most impoverished areas. With an aid delivery footprint spanning 74 countries, we have alleviated the suffering of over 50 million beneficiaries in one way or another.</p>
+
+                                <p class="pt-10 pb-4 ">
+                                    <a class="px-4 py-4 text-white rounded bg-blue-900 hover:bg-blue-700"
+                                        href="">Lern More</a>
+                                </p>
+
+                             </div>
+
+                             {{-- about image section --}}
+                             <div class="md:grid md:grid-cols-2 lg:grid-cols-2 lg:mr-5 mb-8">
+                                <div class="pl-4 pt-4 pb-4">
+                                    <div class="">
+                                        <div class="">
+                                            <img class="object-cover mr-5"
+                                                src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-1.jpg" alt="">
+                                        </div>
+                                        <div class=" bg-lime-600 p-2 hover:bg-blue-900">
+                                            <a class=" text-white font-semibold text-xl" href="#">Our Story</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pl-4 pt-4 pb-4">
+                                    <div class="">
+                                        <div class="">
+                                            <img class="object-cover mr-5"
+                                                src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-1.jpg" alt="">
+                                        </div>
+                                        <div class=" bg-lime-600 p-2 hover:bg-blue-900">
+                                            <a class=" text-white font-semibold text-xl" href="#">What We Do</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pl-4 pt-4 pb-4">
+                                    <div class="">
+                                        <div class="">
+                                            <img class="object-cover mr-5"
+                                                src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-3.jpg" alt="">
+                                        </div>
+                                        <div class=" bg-lime-600 p-2 hover:bg-blue-900">
+                                            <a class=" text-white font-semibold text-xl" href="#">Vision & Mission</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="pl-4 pt-4 pb-4">
+                                    <div class="">
+                                        <div class="">
+                                            <img class="object-cover mr-5"
+                                                src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-4.jpg" alt="">
+                                        </div>
+                                        <div class=" bg-lime-600 p-2 hover:bg-blue-900">
+                                            <a class=" text-white font-semibold text-xl" href="#">Who We Are</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                             </div>
+
+                        </div>
+                    </div>
+                </div>
+                {{-- About us Section end --}}
             @elseif ($sec->section_design_type_id == 2)
                 {{-- Event section start --}}
                 <div class="container bg-white">
@@ -111,12 +243,12 @@
                 {{-- Tab area start --}}
             @elseif ($sec->section_design_type_id == 9)
                 <div class="container mx-auto py-10 bg-white" x-data="{ selected: 'option-2' }">
-                    @if ($sec->section_name_is_show)
+                    {{-- @if ($sec->section_name_is_show)
                         <h2 class="flex justify-center primary-color font-bold text-3xl uppercase my-5">
                             {{ $sec->section_name }}</h2>
-                    @endif
+                    @endif --}}
 
-                    <ul
+                    {{-- <ul
                         class="lg:flex lg:justify-center lg:space-x-12 space-y-5 lg:space-y-0 md:grid md:grid-cols-3 md:gap-2 md:space-y-0 text-white">
                         @foreach ($researchs as $research)
                             <li>
@@ -127,8 +259,8 @@
                                 </button>
                             </li>
                         @endforeach
-                    </ul>
-                    <div class="p-3 mt-6 bg-white border">
+                    </ul> --}}
+                    {{-- <div class="p-3 mt-6 bg-white border">
                         @foreach ($researchs as $research)
                             <div class="relative" x-show="selected === 'option-{{ $research->id }}'">
                                 <img class="custom-h-600" src="{{ $research->img_paths['original'] }}" alt="">
@@ -140,7 +272,7 @@
                                 </div>
                             </div>
                         @endforeach
-                    </div>
+                    </div> --}}
                 </div>
                 {{-- Tab area end --}}
             @endif
