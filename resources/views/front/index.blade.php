@@ -36,18 +36,7 @@
                                 @endforeach
                             </div>
                         </div>
-                        <!-- welcome content -->
-                        {{-- <div class="lg:w-1/2 w-full px-6">
-                            <h2 class=" py-8 uppercase text-3xl primary-color">{{ $sec->title }}</h2>
-                            <div class=" text-gray-500 text-lg leading-8 pr-10 text-justify">
-                                {!! \Illuminate\Support\Str::limit($sec->description, 800) !!}
-                            </div>
-                            <p class="pt-4 pb-10">
-                                <a class="px-4 py-3 btn-bg text-white rounded hover:bg-blue-900 hover:text-yellow-300"
-                                    href="{{ $sec->button_url }}">
-                                    {{ $sec->button_name }}</a>
-                            </p>
-                        </div> --}}
+
                     </div>
                 </div>
                 {{-- Welcome area end --}}
@@ -56,53 +45,22 @@
                 <div class=" bg-gray-300 pt-16 pb-16">
                     <div class="container">
                         <div class="md:grid md:grid-cols-4 lg:grid-cols-4 md:gap-4 lg:mr-5 mb-8">
+                            @foreach ($categories as $donation)
                             <div class="pl-4 pt-4 pb-4">
                                 <div class="">
                                     <div class="">
-                                        <img class="object-cover mr-5"
-                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
+                                        @if ($donation->image)
+                                            <img class="object-cover mr-5"
+                                                src="{{ $donation->img_paths['small'] }}" alt="">
+                                        @endif
                                     </div>
                                     <div class=" bg-lime-600 p-5 hover:bg-blue-900">
-                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
+                                        <a class=" text-white font-bold text-2xl" href="#">{{ $donation->title }}</a>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
-                            <div class="pl-4 pt-4 pb-4">
-                                <div class="">
-                                    <div class="">
-                                        <img class="object-cover mr-5"
-                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
-                                    </div>
-                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
-                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pl-4 pt-4 pb-4">
-                                <div class="">
-                                    <div class="">
-                                        <img class="object-cover mr-5"
-                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
-                                    </div>
-                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
-                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pl-4 pt-4 pb-4">
-                                <div class="">
-                                    <div class="">
-                                        <img class="object-cover mr-5"
-                                            src="https://alkhair.org/wp-content/uploads/2023/09/WhatsApp-Image-2023-09-09-at-1.33.37-PM.jpeg" alt="">
-                                    </div>
-                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
-                                        <a class=" text-white font-bold text-2xl" href="#">Gaza Emergency Appeal</a>
-                                    </div>
-                                </div>
-                            </div>
 
 
                         </div>
@@ -136,7 +94,7 @@
                                                 src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-1.jpg" alt="">
                                         </div>
                                         <div class=" bg-lime-600 p-2 hover:bg-blue-900">
-                                            <a class=" text-white font-semibold text-xl" href="#">Our Story</a>
+                                            <a class=" text-white font-semibold text-xl" href="http://al-khair.test/page/about-us">Our Story</a>
                                         </div>
                                     </div>
                                 </div>
@@ -148,7 +106,7 @@
                                                 src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-1.jpg" alt="">
                                         </div>
                                         <div class=" bg-lime-600 p-2 hover:bg-blue-900">
-                                            <a class=" text-white font-semibold text-xl" href="#">What We Do</a>
+                                            <a class=" text-white font-semibold text-xl" href="http://al-khair.test/page/who-we-are">What We Do</a>
                                         </div>
                                     </div>
                                 </div>
@@ -160,7 +118,7 @@
                                                 src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-3.jpg" alt="">
                                         </div>
                                         <div class=" bg-lime-600 p-2 hover:bg-blue-900">
-                                            <a class=" text-white font-semibold text-xl" href="#">Vision & Mission</a>
+                                            <a class=" text-white font-semibold text-xl" href="http://al-khair.test/page/our-mission">Vision & Mission</a>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +130,7 @@
                                                 src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-4.jpg" alt="">
                                         </div>
                                         <div class=" bg-lime-600 p-2 hover:bg-blue-900">
-                                            <a class=" text-white font-semibold text-xl" href="#">Who We Are</a>
+                                            <a class=" text-white font-semibold text-xl" href="http://al-khair.test/page/who-we-are">Who We Are</a>
                                         </div>
                                     </div>
                                 </div>
@@ -183,54 +141,62 @@
                     </div>
                 </div>
                 {{-- About us Section end --}}
-            @elseif ($sec->section_design_type_id == 2)
-                {{-- Event section start --}}
-                <div class="container bg-white">
-                    <div class="container-box">
-                        <div class="pt-2 pb-2 primary-bg flex justify-between">
-                            @if ($sec->section_name_is_show)
-                                <h2 class="font-bold text-white ml-5">{{ $sec->section_name }}</h2>
-                            @endif
-                            <span class="text-white mr-5">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="">
 
-                            <!-- News area -->
-                            <div class="md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-4 lg:mr-5 shadow-lg mb-8">
-                                <!-- single news -->
-                                @foreach ($news as $new)
-                                    {{-- @if ($new->category->slug == 'news') --}}
-                                    <div class="pl-4 pt-4 pb-4 border-b-2 custom-b-color">
-                                        <h2 class="mt-5 mb-5 primary-color">
-                                            <a href="{{ route('single-news', $new->slug) }}">{{ $new->title }}</a>
-                                        </h2>
-                                        <div class="flex">
-                                            @if ($new->image)
-                                                <img class="h-20 w-20 object-cover mr-5"
-                                                    src="{{ $new->img_paths['small'] }}" alt="">
+                {{-- Donation Category Section --}}
+                 <div class=" bg-gray-300 pt-16 pb-16">
+                    <div class="container">
+                        <h2 class=" text-black font-semibold pt-3 pb-4 text-xl">Freature Donations</h2>
+                        <div class="md:grid md:grid-cols-4 lg:grid-cols-4 md:gap-4 lg:mr-5 mb-8">
+
+                            @foreach ($categories as $donation)
+                                @if ($donation->feature == 1)
+                                <div class="pl-4 pt-4 pb-4">
+                                    <div class="">
+                                        <div class="">
+                                            @if ($donation->image)
+                                                <img class="object-cover mr-5"
+                                                    src="{{ $donation->img_paths['small'] }}" alt="">
                                             @endif
-                                            <div>
-                                                <span
-                                                    class=" text-gray-500 text-sm mb-3">{{ \Carbon\Carbon::parse($new->publish_date)->format('d-M-Y') }}</span>
-                                                <div class=" text-gray-500 text-base text-justify pr-2">
-                                                    {!! \Illuminate\Support\Str::limit($new->description, 200) !!}
-                                                </div>
-                                            </div>
+                                        </div>
+                                        <div class=" bg-lime-600 p-5 hover:bg-blue-900">
+                                            <a class=" text-white font-bold text-2xl" href="#">{{ $donation->title }}</a>
                                         </div>
                                     </div>
-                                    {{-- @endif --}}
-                                @endforeach
+                                </div>
+                                @endif
+                            @endforeach
 
-                            </div>
                         </div>
                     </div>
-                    <div>
+                </div>
+                {{-- Donation Category Section end --}}
+
+                {{-- News Section --}}
+                <div class=" bg-white pt-16 pb-16">
+                    <div class="container">
+
+                        <div class=" text-center">
+                            <span class=" text-blue-900 text-base">Our Activities</span>
+                            <h2 class=" text-black font-semibold text-5xl pt-3 pb-4">Our latest news</h2>
+                        </div>
+                        <div class="md:grid md:grid-cols-4 lg:grid-cols-4 md:gap-4 lg:mr-5 mb-8">
+                            @foreach ($news as $new)
+                            <div class="pl-4 pt-4 pb-4">
+                                <div class="">
+                                    <div class="">
+                                        @if ($new->image)
+                                            <img
+                                                src="{{ $new->img_paths['small'] }}" alt="">
+                                        @endif
+                                    </div>
+                                    <div class=" bg-lime-600 p-5 hover:bg-blue-900">
+                                        <a class=" text-white font-bold text-2xl" href="{{ route('single-news', $new->slug) }}">{{ $new->title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
                         <p class="pt-10 pb-4 flex justify-center">
                             <a class="px-4 py-3 btn-bg text-white rounded hover:bg-blue-900 hover:text-yellow-300"
                                 href="/page/news">View
@@ -238,43 +204,8 @@
                         </p>
                     </div>
                 </div>
-                {{-- Event section end --}}
+                {{-- News Section end --}}
 
-                {{-- Tab area start --}}
-            @elseif ($sec->section_design_type_id == 9)
-                <div class="container mx-auto py-10 bg-white" x-data="{ selected: 'option-2' }">
-                    {{-- @if ($sec->section_name_is_show)
-                        <h2 class="flex justify-center primary-color font-bold text-3xl uppercase my-5">
-                            {{ $sec->section_name }}</h2>
-                    @endif --}}
-
-                    {{-- <ul
-                        class="lg:flex lg:justify-center lg:space-x-12 space-y-5 lg:space-y-0 md:grid md:grid-cols-3 md:gap-2 md:space-y-0 text-white">
-                        @foreach ($researchs as $research)
-                            <li>
-                                <button x-on:click="selected = 'option-{{ $research->id }}'"
-                                    class="inline-block px-4 py-3 nav-bg rounded uppercase hover:bg-blue-900 hover:text-yellow-300"
-                                    x-bind:class="{ 'bg-blue-900 text-yellow-300': selected === 'option-{{ $research->id }}' }">
-                                    {{ $research->title }}
-                                </button>
-                            </li>
-                        @endforeach
-                    </ul> --}}
-                    {{-- <div class="p-3 mt-6 bg-white border">
-                        @foreach ($researchs as $research)
-                            <div class="relative" x-show="selected === 'option-{{ $research->id }}'">
-                                <img class="custom-h-600" src="{{ $research->img_paths['original'] }}" alt="">
-                                <div class="absolute bottom-0 left-0 right-0 bg-blue-900 bg-opacity-50 py-10">
-                                    <h4 class=" text-3xl font-bold text-center text-white">
-                                        <a
-                                            href="{{ route('single-research', $research->slug) }}">{{ $research->sub_title }}</a>
-                                    </h4>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div> --}}
-                </div>
-                {{-- Tab area end --}}
             @endif
         @endforeach
     @endif

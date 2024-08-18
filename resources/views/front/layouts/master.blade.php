@@ -276,7 +276,7 @@
         {{-- Footer area start --}}
         <footer>
             <!-- Footer Top Area -->
-            <div class="footer-bg py-10">
+            <div class="nav-bg py-10">
                 <div class="container">
                     <div class="lg:flex space-y-10 lg:space-y-0">
                         @foreach ($widgets as $widget)
@@ -286,8 +286,8 @@
                                 @if ($widget->type == 'Menu' && $widget->Menu)
                                     <ul class="leading-loose">
                                         @foreach ($widget->Menu->SingleMenuItems as $item)
-                                            <li class="pb-3 border-b border-gray-500 border-dotted w-full">
-                                                <a class=" text-sm text-gray-400"
+                                            <li class="pb-3 border-b border-white border-dotted w-full">
+                                                <a class=" text-sm text-white"
                                                     href="{{ $item->menu_info['url'] }}">{{ $item->menu_info['text'] }}</a>
                                             </li>
                                         @endforeach
@@ -305,8 +305,8 @@
                         <div class="lg:w-1/4 lg:pr-10 w-full">
                             <h4 class=" text-white text-lg font-medium uppercase mb-8">CONTACT & MAILING ADDRESS</h4>
                             <ul class="leading-loose pt-3">
-                                <li class="pb-2 border-b border-gray-500 border-dotted w-full">
-                                    <p class="text-sm text-gray-400 flex">
+                                <li class="pb-2 border-b border-white border-dotted w-full">
+                                    <p class="text-sm text-white flex">
                                         <span class="mr-2 text-base">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -317,8 +317,8 @@
                                         Postal Code: {{ $settings_g['zip'] ?? '' }}
                                     </p>
                                 </li>
-                                <li class="pb-2 border-b border-gray-500 border-dotted w-full">
-                                    <p class="text-sm text-gray-400 py-2 flex">
+                                <li class="pb-2 border-b border-white border-dotted w-full">
+                                    <p class="text-sm text-white py-2 flex">
                                         <span class="mr-2 text-base">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -329,8 +329,8 @@
                                         Phone: {{ $settings_g['mobile_number'] ?? '' }}
                                     </p>
                                 </li>
-                                <li class="pb-2 border-b border-gray-500 border-dotted w-full">
-                                    <p class="text-sm text-gray-400 py-1 flex">
+                                <li class="pb-2 border-b border-white border-dotted w-full">
+                                    <p class="text-sm text-white py-1 flex">
                                         <span class="mr-2 text-base">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -341,8 +341,8 @@
                                         Email: {{ $settings_g['email'] ?? '' }}
                                     </p>
                                 </li>
-                                <li class="pb-3 border-b border-gray-500 border-dotted w-full">
-                                    <a class="text-sm text-gray-400 py-1 flex" href="/">
+                                <li class="pb-3 border-b border-white border-dotted w-full">
+                                    <a class="text-sm text-white py-1 flex" href="/">
                                         <span class="mr-2 text-base flex">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
                                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -363,15 +363,15 @@
             <div class="bottom-footer-bg py-6">
                 <div class="container">
                     <div class="md:flex md:justify-between space-y-5 md:space-y-0">
-                        <p class=" text-xs text-gray-400">Copyright © {{ date('Y') }} | Al Khair
+                        <p class=" text-xs text-white">Copyright © {{ date('Y') }} | Al Khair
                             | All Rights Reserved</p>
                         <ul class="flex md:justify-between">
                             <li>
-                                <a class=" text-xs text-gray-400 font-bold border-r-2 border-gray-400 pr-4"
+                                <a class=" text-xs text-white font-bold border-r-2 border-white pr-4"
                                     href="/page/overview">Mission & Vision</a>
                             </li>
                             <li>
-                                <a class=" text-xs text-gray-400 font-bold pl-4" href="/page/overview">About</a>
+                                <a class=" text-xs text-white font-bold pl-4" href="/page/overview">About</a>
                             </li>
                         </ul>
                     </div>

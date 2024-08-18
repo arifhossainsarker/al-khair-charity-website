@@ -32,8 +32,10 @@ class PageController extends Controller
         $news = News::where(['status' => 1])->OrderBy('position', 'ASC')->take(4)->get();
         $events = Event::where(['status' => 1])->OrderBy('position', 'ASC')->take(5)->get();
         $researchs = Research::where(['status' => 1])->OrderBy('created_at', 'ASC')->take(5)->get();
+        $categories = Category::where('category_id', null)->where('for', 'donation')->latest('id')->get();
 
-        return view('front.index', compact('sliders', 'home_sections', 'news', 'events', 'researchs'));
+
+        return view('front.index', compact('sliders', 'home_sections', 'news', 'events', 'researchs', 'categories'));
     }
 
     public function contactUs()
