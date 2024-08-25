@@ -46,6 +46,7 @@
                     <div class="container">
                         <div class="md:grid md:grid-cols-4 lg:grid-cols-4 md:gap-4 lg:mr-5 mb-8">
                             @foreach ($categories as $donation)
+                            @if ($donation->feature == 0)
                             <div class="pl-4 pt-4 pb-4">
                                 <div class="">
                                     <div class="">
@@ -59,6 +60,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                             @endforeach
 
 
@@ -103,7 +105,7 @@
                                     <div class="">
                                         <div class="">
                                             <img class="object-cover mr-5"
-                                                src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-1.jpg" alt="">
+                                                src="https://alkhair.org/wp-content/themes/akf/assets/images/ab-2.jpg" alt="">
                                         </div>
                                         <div class=" bg-lime-600 p-2 hover:bg-blue-900">
                                             <a class=" text-white font-semibold text-xl" href="http://al-khair.test/page/who-we-are">What We Do</a>
