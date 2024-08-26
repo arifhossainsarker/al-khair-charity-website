@@ -13,7 +13,14 @@ Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 
 Route::get('contact-us', [PageController::class, 'contactUs'])->name('contactUs');
 
+
 Route::post('contact-us/form/submit', [\App\Http\Controllers\ContactUsController::class, 'contact'])->name('contact.us.store');
+
+// Volunteer Registration
+
+Route::get('volunteer-registration', [PageController::class, 'volunteerRegistration'])->name('volunteerRegistration');
+
+Route::post('volunteer/form/submit', [\App\Http\Controllers\ContactUsController::class, 'volunteer'])->name('volunteer.store');
 
 Route::get('page/{slug}', [PageController::class, 'commonPage'])->name('common.page');
 

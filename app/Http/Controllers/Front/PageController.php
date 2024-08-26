@@ -42,6 +42,12 @@ class PageController extends Controller
     {
         return view('front.contactUs');
     }
+
+     // Volunteer Registration Function
+     public function volunteerRegistration()
+     {
+        return view('front.volunteer.index');
+     }
     /*
      * method for single home section page
      * */
@@ -133,6 +139,7 @@ class PageController extends Controller
 
         return view('front.notice.single', compact('notice'));
     }
+
 
     public function search(Request $request)
     {

@@ -23,7 +23,7 @@
                 <div class="w-full lg:w-1/2 lg:ml-10">
                     {{-- section title --}}
                     <div>
-                        <h2 class="text-3xl font-bold primary-color mb-10">Department of Microbiology</h2>
+                        <h2 class="text-3xl font-bold primary-color mb-10">Our Address</h2>
                     </div>
                     <div class="mb-2">
                         <div class="flex space-x-5">
@@ -39,7 +39,7 @@
                             </span>
                             <span class="text-base font-normal italic">
                                 <p>{{ $settings_g['street'] ?? '' }}</p>
-                                <p>Noakhali Science and Technology University</p>
+                                <p>Al Khair Foundation Ltd</p>
                                 <p>{{ $settings_g['city'] ?? '' }}-{{ $settings_g['zip'] ?? '' }},
                                     {{ $settings_g['country'] ?? '' }}</p>
                             </span>
@@ -84,7 +84,7 @@
                                     src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAC60lEQVRIieWWT2gUVxzHP9+8t6z0YLIe4iExB8EeQiChICIEiihooFUprEmTBjwpHnoVBI8e0mvpKYIIdTUll0KVqBBjD4IeaoRGS3IopX8O7cE/VTA6f34eZsbsziap2UlP/i478+b73oc3b99nHrxvpc0baqhcouOEycaAvrRxQaZawNNJmHn1P4DHur2iq0D/6s/tQWjxJzD9V9bSVhxa7XGKfkygWjTjs9Bce2h0mdkxYAk04NV2FYbKWa+CMx7Z4cRtwU7gXmhbDsHFp42Z0YpXfBf4UGZfBnz3DRSa8VDZix9WoNHBZijA5SdmdhbApC+y1pbBJdpPAv0GvyUznX62VjZCd5Ir9RYGmxhLLuz06jNdv3yrYKAXIKJ8K7kd7/QKZkAvQrvycX3QoUEwwB5mbUX+1cvJz8u2FDoLfAS2pTF2vEOycwAyq20G+BcAT9t4Cu0DFkIrfboSqbZ7LV8HdgHzAf+ez564VqmOPkMcRToIdKbQ/fDtP0litOKl68Aeg18j4xB8/zjr3/IaB3DTQwCUGqGfb3fEB6R4AuhOoNE+mP6jvv864Cb3LgOPZFwI4KYXN/JQx8iwZJdA2bjzkbnDMPVnfvQ1zPVf7m2eaYnh3SZdAz4AfpZZLSCehOnXqw2wCrja4+TmEiNp0czORLhZeO1L+DGTfZ0Gc2u6scq96pEdTsytaLBc597xTlNwYjOg0LCd1nPv232abZm3r7cwOHMvaDHvXq/gWh7qGBlO17QYOHNv8iVpcm8I/FS/ZSQugXKWeveqX+PUvf5OPhTa1N76e0d8INkyK+7daLWgzNGKpAlodG8R8EMARzC4drza7hXPAN3k3NsyWKYagKRzMFppjh7v8HI3SN0bGkfyJ8eNVJ1AhspeW++CBoAlMzubnRwcGkw/bbvq3Pt7q9AcGKDalZwGNbBGfj40dxhqTe7daOU+i4+ex/RcdJT/RtoGVEi8fF9mX4XEp2DqSVHo+1lvAIrlOBO88lFlAAAAAElFTkSuQmCC">
                             </span>
                             <span class="text-base font-normal">
-                                <p>www.micro.nstu.edu.bd</p>
+                                <p>www.al-khair.org</p>
                             </span>
                         </div>
                     </div>

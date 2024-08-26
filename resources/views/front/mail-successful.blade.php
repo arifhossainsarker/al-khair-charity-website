@@ -22,7 +22,7 @@
             <div class="lg:flex bg-white p-5 rounded-xl space-y-10 lg:space-y-0">
                 <div class="w-full">
                     <div class=" mx-auto text-center">
-                        <h4 class=" text-lg text-center font-semibold mb-5">Your Mail Send Successfully!</h4>
+                        <h4 class=" text-lg text-center font-semibold mb-5">Submission Successfully!</h4>
                         <a href="/"
                             class="shadow primary-bg hover:bg-blue-900 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                             type="submit">
