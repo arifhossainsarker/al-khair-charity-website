@@ -134,7 +134,7 @@
                                 <div>
                                     <p class="pt-2 pb-2 ml-5 flex justify-center">
                                         <a class="px-5 py-3 bg-white text-red-500 font-semibold text-white rounded hover:bg-blue-900 hover:text-yellow-300"
-                                            href="http://al-khair.test/volunteer-registration">Volunteer Registration</a>
+                                            href="http://al-khair.test/donation">Donation</a>
                                     </p>
                                 </div>
                             </div>
@@ -183,6 +183,14 @@
                                 @else
                                     <p class="text-danger text-right">Please create "Main Menu"</p>
                                 @endif
+                            </div>
+                            <div class="md:block hidden">
+                                <div>
+                                    <p class="pt-2 pb-2 ml-5 flex justify-center">
+                                        <a class="px-5 py-3 bg-white text-red-500 font-semibold text-white rounded hover:bg-blue-900 hover:text-yellow-300"
+                                            href="http://al-khair.test/volunteer-registration">Volunteer Registration</a>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div class="lg:hidden text-right">

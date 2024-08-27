@@ -32,8 +32,11 @@ Route::get('news/{slug}', [PageController::class, 'singleNews'])->name('single-n
 Route::get('event/{slug}', [PageController::class, 'singleEvent'])->name('single-event');
 Route::get('notice/{slug}', [PageController::class, 'singleNotice'])->name('single-notice');
 
-// people list
-Route::get('people-list/{name}', [PageController::class, 'peopleList'])->name('people-list');
+
+// Donation
+Route::get('donation', [PageController::class, 'donation'])->name('donation');
+
+Route::get('donation/{slug}', [PageController::class, 'singleDonation'])->name('single-donation');
 
 // Search query
 Route::get('search', [PageController::class, 'search'])->name('search');

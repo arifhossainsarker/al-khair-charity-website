@@ -51,12 +51,14 @@
                                 <div class="">
                                     <div class="">
                                         @if ($donation->image)
+                                        <a href="{{ route('single-donation',$donation->slug ) }}">
                                             <img class="object-cover mr-5"
-                                                src="{{ $donation->img_paths['small'] }}" alt="">
+                                            src="{{ $donation->img_paths['small'] }}" alt="">
+                                        </a>
                                         @endif
                                     </div>
                                     <div class=" bg-lime-600 p-5 hover:bg-blue-900">
-                                        <a class=" text-white font-bold text-2xl" href="#">{{ $donation->title }}</a>
+                                        <a class=" text-white font-bold text-2xl" href="{{ route('single-donation',$donation->slug ) }}">{{ $donation->title }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -156,12 +158,14 @@
                                     <div class="">
                                         <div class="">
                                             @if ($donation->image)
+                                            <a href="{{ route('single-donation',$donation->slug ) }}">
                                                 <img class="object-cover mr-5"
-                                                    src="{{ $donation->img_paths['small'] }}" alt="">
+                                                src="{{ $donation->img_paths['small'] }}" alt="">
+                                            </a>
                                             @endif
                                         </div>
                                         <div class=" bg-lime-600 p-5 hover:bg-blue-900">
-                                            <a class=" text-white font-bold text-2xl" href="#">{{ $donation->title }}</a>
+                                            <a class=" text-white font-bold text-2xl" href="{{ route('single-donation',$donation->slug ) }}">{{ $donation->title }}</a>
                                         </div>
                                     </div>
                                 </div>

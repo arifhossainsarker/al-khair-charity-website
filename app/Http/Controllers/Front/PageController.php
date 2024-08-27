@@ -20,6 +20,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Models\PeopleQualification;
 use App\Http\Controllers\Controller;
+use App\Models\Donation;
 
 class PageController extends Controller
 {
@@ -65,12 +66,12 @@ class PageController extends Controller
         return view('front.page', compact('page'));
     }
 
-    public function singleAlumni($slug)
-    {
-        $researches = \App\Models\Alumni::where(['batch_no' => $slug])->paginate(12);
+    // public function singleAlumni($slug)
+    // {
+    //     $researches = \App\Models\Alumni::where(['batch_no' => $slug])->paginate(12);
 
-        return view('front.alumni.single-alumni', compact('researches', 'slug'));
-    }
+    //     return view('front.alumni.single-alumni', compact('researches', 'slug'));
+    // }
 
     public function singleBlog($blog)
     {
@@ -81,34 +82,35 @@ class PageController extends Controller
 
 
 
-    public function galleries()
-    {
-        $galleries = Gallery::active()->get();
-        return view('front.gallery.galleries', compact('galleries'));
-    }
+    // public function galleries()
+    // {
+    //     $galleries = GalleryItem::get();
+
+    //     return view('front.gallery.galleries', compact('galleries'));
+    // }
     public function gallery($gallery)
     {
         $gallery = Gallery::where('name', $gallery)->first();
         return view('front.gallery.gallery', compact('gallery'));
     }
 
-    public function singlePeople($slug)
-    {
-        $people = PeopleList::where('slug', $slug)->first();
+    // public function singlePeople($slug)
+    // {
+    //     $people = PeopleList::where('slug', $slug)->first();
 
 
-        $people_qualifications = PeopleQualification::with('PeopleQualificationCategories', 'PeopleQualificationCategories.PeopleQualificationValues')->where('people_list_id', $people->id)->get();
+    //     $people_qualifications = PeopleQualification::with('PeopleQualificationCategories', 'PeopleQualificationCategories.PeopleQualificationValues')->where('people_list_id', $people->id)->get();
 
 
-        return view('front.people.single', compact('people', 'people_qualifications'));
-    }
+    //     return view('front.people.single', compact('people', 'people_qualifications'));
+    // }
 
-    public function singleResearch($slug)
-    {
-        $research = Research::where('slug', $slug)->first();
+    // public function singleResearch($slug)
+    // {
+    //     $research = Research::where('slug', $slug)->first();
 
-        return view('front.research.single', compact('research'));
-    }
+    //     return view('front.research.single', compact('research'));
+    // }
 
     public function singleNews($slug)
     {
@@ -124,13 +126,28 @@ class PageController extends Controller
         return view('front.event.single', compact('event'));
     }
 
-    public function peopleList($name)
+    // public function peopleList($name)
+    // {
+    //     $people_category = People::where('type', $name)->first();
+
+    //    $peoples = PeopleList::where('people_id', $people_category->id)->orderBy(DB::raw('-`serial`'), 'desc')->paginate(10);
+
+    //     return view('front.people.people-list', compact('peoples'));
+    // }
+
+    // Donation Page
+
+    public function donation()
     {
-        $people_category = People::where('type', $name)->first();
+        $categories = Category::where('category_id', null)->where('for', 'donation')->latest('id')->paginate(12);
+        return view('front.donation.index', compact('categories'));
+    }
 
-       $peoples = PeopleList::where('people_id', $people_category->id)->orderBy(DB::raw('-`serial`'), 'desc')->paginate(10);
+    public function singleDonation($slug)
+    {
+        $donation = Category::where('slug', $slug)->first();
 
-        return view('front.people.people-list', compact('peoples'));
+        return view('front.donation.single', compact('donation'));
     }
 
     public function singleNotice($slug)
