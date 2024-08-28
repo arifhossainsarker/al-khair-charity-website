@@ -282,7 +282,7 @@
                 <div class="w-full">
                     <div class="mapouter">
                         <div class="gmap_canvas"><iframe width="100%" height="500" id="gmap_canvas"
-                                src="https://maps.google.com/maps?q=NSTU&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.7625147223393!2d-0.06806242387181102!3d51.517572809960726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761ccb77652f61%3A0x39fd220ae3d54406!2sEast%20London%20Mosque!5e0!3m2!1sen!2suk!4v1724880040823!5m2!1sen!2suk"
                                 frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a
                                 href="https://123movies-a.com"></a><br>
                             <style>

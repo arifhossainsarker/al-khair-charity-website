@@ -24,7 +24,7 @@
                     <img class=" h-full w-full rounded-lg" src="{{ $event->img_paths['original'] }}" alt="">
                 </div>
                 <div class=" py-2">
-                    <span class="primary-color text-xs font-semibold py-4">{{ \Carbon\Carbon::parse($event->start_date)->format('d-M-Y h:i A') }}
+                    <span class="primary-color text-xs font-semibold py-4">Event Date: {{ \Carbon\Carbon::parse($event->start_date)->format('d-M-Y h:i A') }}
                         -
                         {{ \Carbon\Carbon::parse($event->end_date)->format('d-M-Y h:i A') }}</span>
                     <h2 class="pt-2 primary-color text-base font-semibold pb-2">
@@ -33,16 +33,12 @@
                     <div class=" text-gray-500 text-sm font-normal mb-4">
                         {!! $event->description !!}
                     </div>
-                   {{-- @if ($event->video)
-                        <div class="overflow-hidden">
-                            <video class="h-52 w-full bg-white"  controls="controls" autoplay loop muted>
-                                <source src="{{ asset($event->video) }}" type="video/mp4" />
-                            </video>
-                        </div>
-                    @endif --}}
-                    {{-- <div class="p-4 border border-gray-200 mt-10 w-1/5">
-                        <span class="primary-color text-xs"><b class="font-black">Source : </b><a href="{{ $news->source_link }}">{{ $news->source_name }}</a></span>
-                    </div> --}}
+                   <div class=" text-blue-900 font-semibold text-lg">
+                        Address: {!! $event->location_address !!}
+                   </div>
+                   <div class=" mt-5">
+                    <iframe src="{{ $event->location_map }}" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                   </div>
                 </div>
             </div>
        </div>

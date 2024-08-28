@@ -81,9 +81,9 @@
                                                 <textarea class="form-control" id="editor" placeholder="Enter the Description" name="description">{{ old('description') ?? $event->description }}</textarea>
                                             </div>
                                             <br>
-                                            <div class="row">
+                                            {{-- <div class="row">
                                                 <event-attribute></event-attribute>
-                                            </div>
+                                            </div> --}}
                                         </div>
 
                                         <div class="col-lg-4">

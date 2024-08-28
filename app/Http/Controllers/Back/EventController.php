@@ -82,27 +82,27 @@ class EventController extends Controller
 
         $event->save();
 
-        $a_type = [];
-        foreach ($request->attribute_title as $key => $type) {
-            $attributes = [];
-            foreach ($request->attribute_title[$key] as $key2 => $lb) {
-                $attributes[] = [
-                    'label' => $lb,
-                    'attribute_title' => $request->attribute_title[$key][$key2],
-                    'attribute_description' => $request->attribute_description[$key][$key2],
-                    'attribute_url' => $request->attribute_url[$key][$key2],
-                    'attribute_position' => $request->attribute_position[$key][$key2]
-                ];
-            }
-            $a_type[] = [
-                'event_id' => $event->id,
-                'attributes' => json_encode($attributes),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
+        // $a_type = [];
+        // foreach ($request->attribute_title as $key => $type) {
+        //     $attributes = [];
+        //     foreach ($request->attribute_title[$key] as $key2 => $lb) {
+        //         $attributes[] = [
+        //             'label' => $lb,
+        //             'attribute_title' => $request->attribute_title[$key][$key2],
+        //             'attribute_description' => $request->attribute_description[$key][$key2],
+        //             'attribute_url' => $request->attribute_url[$key][$key2],
+        //             'attribute_position' => $request->attribute_position[$key][$key2]
+        //         ];
+        //     }
+        //     $a_type[] = [
+        //         'event_id' => $event->id,
+        //         'attributes' => json_encode($attributes),
+        //         'created_at' => now(),
+        //         'updated_at' => now(),
+        //     ];
 
-            EventAttribute::insert($a_type);
-        }
+        //     EventAttribute::insert($a_type);
+        // }
 
         return redirect()->back()->with('success-alert', 'Event created successfully.');
     }
@@ -138,6 +138,7 @@ class EventController extends Controller
      */
     public function update(UpdateEventRequest $request, Event $event)
     {
+        dd($event);
         $v_data = [
             'title' => 'required|max:255',
             'start_date' => 'required',
@@ -152,6 +153,7 @@ class EventController extends Controller
         }
         $request->validate($v_data);
 
+        $event = Event::findOrFail($event->id);
         $event->title = $request->title;
         $event->description = $request->description;
         $event->start_date = Carbon::parse($request->start_date);
@@ -207,6 +209,10 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+
+        $event = Event::findOrFail($event->id);
+        $event->delete();
+
+        return redirect()->back()->with('success-alert', 'Event Delete successfully.');
     }
 }
