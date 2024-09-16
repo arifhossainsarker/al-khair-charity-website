@@ -29,7 +29,7 @@
                         <div
                             class="p-4 py-6 text-white primary-bg md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly">
                             @if (isset($settings_g['logo']))
-                                <div class="my-3 flex rounded-xl p-3 justify-center items-center bg-white">
+                                <div class="my-3 flex rounded-xl p-3 justify-center items-center">
                                     <a href="{{ route('homepage') }}"><img class=" w-48"
                                             src="{{ $settings_g['logo'] ?? '' }}" alt=""></a>
                                 </div>
