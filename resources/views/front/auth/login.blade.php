@@ -35,7 +35,7 @@
                                 </div>
                             @else
                                 <div class="my-3 text-4xl font-bold tracking-wider text-center">
-                                    <a href="#">LESLIE-ANN FULLERTON <br>CONSULTING</a>
+                                    <a href="#">Al-Khair</a>
                                 </div>
                             @endif
                             <p class="mt-6 font-normal text-center text-gray-300 md:mt-0">
